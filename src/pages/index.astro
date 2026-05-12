@@ -1,5 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/home/Hero.astro';
+import PersonaStrip from '../components/home/PersonaStrip.astro';
+import HowItWorks from '../components/home/HowItWorks.astro';
+import ApplySection from '../components/home/ApplySection.astro';
 ---
 <BaseLayout
   title="Bsides — LLM이 만든 그럴듯한 초고 위에, 감성 한 스푼."
@@ -7,5 +11,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   ogDescription="혼자 개발이 가능해진 시대지만, 각자의 전문성을 더해서 멋진 것을 만드는 작은 프로젝트 팀을 만들어 드려요."
   currentPage="home"
 >
-  <main class="b-container" style="padding: 56px 24px;">홈 콘텐츠는 Phase 2에서.</main>
+  <main data-screen-label="01 Home">
+    <Hero />
+    <PersonaStrip />
+    <HowItWorks />
+    {/* MentorCard·ProgressCard grid는 Phase 4 */}
+    <ApplySection />
+  </main>
 </BaseLayout>
