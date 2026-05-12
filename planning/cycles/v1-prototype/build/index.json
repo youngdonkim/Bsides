@@ -43,7 +43,9 @@
     {
       "phase": 5,
       "name": "notes-track",
-      "status": "pending"
+      "status": "completed",
+      "started_at": "2026-05-12T21:14:47+0900",
+      "completed_at": "2026-05-12T21:20:00+0900"
     },
     {
       "phase": 6,

@@ -1,15 +1,14 @@
 ---
 num: "01"
-en: Intent
-ko: 의도
+en: "Intent"
+ko: "의도"
 group: discover-plan
-read_time: 약 8분 읽기
-h1_lead: 의도 — 무엇을, 누구를 위해, 왜.
-lead: 한 사이클의 첫 단계. 출처 스토리·문제·타겟·성공 기준·가설을 손에 잡힐 정도로 구체화해.
-italic: '"좋은 의도 없이 시작한 프로젝트는, 좋은 코드로도 못 살린다." — 운영 노트'
-workshop_text: Intent 단계는 워크샵 첫 회차에서 운영자가 직접 인터뷰로 깎아드려요. 본인의 출처 스토리를 직접 말로 풀면서 다섯 항목이 자연스레 잡혀요.
+read_time: "약 8분 읽기"
+h1_lead: "의도 — 무엇을, 누구를 위해, 왜."
+lead: "한 사이클의 첫 단계. 출처 스토리·문제·타겟·성공 기준·가설을 손에 잡힐 정도로 구체화해."
+italic: "\"좋은 의도 없이 시작한 프로젝트는, 좋은 코드로도 못 살린다.\" — 운영 노트"
+workshop_text: "Intent 단계는 워크샵 첫 회차에서 운영자가 직접 인터뷰로 깎아드려요. 본인의 출처 스토리를 직접 말로 풀면서 다섯 항목이 자연스레 잡혀요."
 ---
-
 Intent 단계는 한 사이클의 첫 단추예요. 이 단계에서 막연한 아이디어를 **출처 스토리·문제·타겟·성공 기준·가설** 다섯 항목으로 또박또박 적어두면, 나머지 12단계가 흔들릴 때마다 돌아올 닻이 돼요.
 
 ### 왜 출처 스토리부터?
@@ -20,7 +19,7 @@ Bsides 자체도 운영자가 미미로그 출시 직후 느낀 "혼자는 가�
 
 ① **출처 스토리** — 본인 경험 또는 타인 대화에서 끌어온 한 문단. ② **문제 정의** — 누가 무엇 때문에 어떤 상태인지 한 줄로. ③ **타겟** — 1차 사용자를 좁게 정의. ④ **성공 기준** — v1 sliceiclock에서 측정 가능한 숫자 2~3개. ⑤ **핵심 가설** — 검증 단위로 H1·H2·H3.
 
-> **한 스푼 메모** — "잘 모르겠어"가 정상 답이에요. AI랑 운영자가 후보 2~3개 던져주면 골라서 다듬는 식으로. 빈 칸 못 채워서 멈추지 말기.
+<div style="margin: 12px 0px; padding: 20px 22px; background: var(--b-note-mint); border-radius: 12px; transform: rotate(-1deg); box-shadow: var(--b-shadow-note);"><div style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-ink); margin-bottom: 6px;">한 스푼 메모</div><div style="font-family: var(--b-font-sans); font-size: 14.5px; line-height: 1.55; color: var(--b-ink);">"잘 모르겠어"가 정상 답이에요. AI랑 운영자가 후보 2~3개 던져주면 골라서 다듬는 식으로. 빈 칸 못 채워서 멈추지 말기.</div></div>
 
 ### 다음 단계로
 

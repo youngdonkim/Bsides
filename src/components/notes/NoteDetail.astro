@@ -1,0 +1,84 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import { NOTE_GROUPS } from '../../data/note-groups';
+
+interface Props {
+  note: CollectionEntry<'notes'>;
+  prev: CollectionEntry<'notes'> | null;
+  next: CollectionEntry<'notes'> | null;
+}
+
+const { note, prev, next } = Astro.props;
+const d = note.data;
+const group = NOTE_GROUPS[d.group];
+const { Content } = await render(note);
+---
+<main data-screen-label={`Notes · ${d.num} ${d.en}`} data-current-step={d.num}>
+  <div class="b-container" style="padding-top: 40px; padding-bottom: 16px; max-width: 760px;">
+    <a href="/notes" class="t-caption" style="color: var(--b-ink-soft); display: inline-block; margin-bottom: 28px;">← Notes 목차</a>
+    <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 16px; flex-wrap: wrap;">
+      <span style="padding: 4px 12px; background: var(--b-olive-soft); color: var(--b-olive-deep); border-radius: 999px; font-size: 12.5px; font-weight: 600;">{d.num} / 13</span>
+      <span class="t-caption" style="white-space: nowrap; color: var(--b-olive); text-transform: uppercase; letter-spacing: 0.08px;">{group.en}</span>
+      <span style="color: var(--b-ink-faint);">·</span>
+      <span class="t-caption" style="white-space: nowrap;">{group.ko} 그룹</span>
+    </div>
+    <h1 class="t-display" style="font-size: clamp(32px, 4.5vw, 44px); margin-bottom: 14px; line-height: 1.2;">
+      <span style="display: block; font-size: 0.55em; font-weight: 600; color: var(--b-olive); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px;">{d.en}</span>{d.h1_lead}
+    </h1>
+    <p class="t-body" style="font-size: 17px; color: var(--b-ink-soft); max-width: 580px;">{d.lead}</p>
+  </div>
+
+  <div class="b-container" style="max-width: 720px; margin-bottom: 20px; display: flex; gap: 14px; align-items: center; opacity: 0.85;">
+    <img src="/assets/spooni/guide.svg" alt="Bsides 마스코트 스푼이 — 기록하는 포즈" width="72" height="64" loading="lazy" style="flex-shrink: 0;" />
+    <span style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-olive);">학습 노트 · {d.read_time}</span>
+  </div>
+
+  <article class="b-container" style="max-width: 720px;">
+    <div class="t-body" style="font-size: 17px; line-height: 1.85; color: var(--b-ink); display: grid; gap: 20px;">
+      <p style="margin: 0px; font-size: 19px; color: var(--b-ink-soft); font-style: italic;">{d.italic}</p>
+      <Content />
+    </div>
+
+    <div style="margin-top: 56px; padding: 28px; background: var(--b-paper-warm); border: 1px solid var(--b-line); border-radius: 20px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; justify-content: space-between;">
+      <div style="max-width: 460px;">
+        <div class="t-title-3" style="margin-bottom: 6px;">이걸 워크샵에선 어떻게 다루나?</div>
+        <div class="t-caption" style="line-height: 1.55;">{d.workshop_text}</div>
+      </div>
+      <a href="/#apply" style="padding: 12px 22px; background: var(--b-olive); color: var(--b-on-olive); border-radius: 12px; font-size: 14.5px; font-weight: 600; white-space: nowrap;">객원 멤버로 합류 →</a>
+    </div>
+
+    <nav class="b-detail-nav" style="margin-top: 56px; padding: 24px 0px 8px; border-top: 1px solid var(--b-line); display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      {prev ? (
+        <div>
+          <a href={`/notes/${prev.id}`} style="display: block;">
+            <div class="t-caption" style="margin-bottom: 6px;">← {prev.data.num} {prev.data.en}</div>
+            <div class="t-body-strong" style="color: var(--b-ink);">{prev.data.ko}</div>
+          </a>
+        </div>
+      ) : (
+        <div>
+          <a href="/notes" style="display: block;">
+            <div class="t-caption" style="margin-bottom: 6px;">← Notes 목차</div>
+            <div class="t-body-strong" style="color: var(--b-ink);">13단계 처음으로</div>
+          </a>
+        </div>
+      )}
+      {next ? (
+        <div style="text-align: right;">
+          <a href={`/notes/${next.id}`} style="display: block;">
+            <div class="t-caption" style="margin-bottom: 6px;">다음 단계 →</div>
+            <div class="t-body-strong" style="color: var(--b-ink);">{next.data.num} {next.data.en} · {next.data.ko}</div>
+          </a>
+        </div>
+      ) : (
+        <div style="text-align: right;">
+          <a href="/notes" style="display: block;">
+            <div class="t-caption" style="margin-bottom: 6px;">사이클 끝 ↺</div>
+            <div class="t-body-strong" style="color: var(--b-ink);">Notes 목차로 돌아가기</div>
+          </a>
+        </div>
+      )}
+    </nav>
+  </article>
+</main>
