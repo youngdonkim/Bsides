@@ -68,7 +68,8 @@
         "astro.config.mjs",
         "dist/index.html",
         "planning/cycles/v1-prototype/build/phase7-output.json"
-      ]
+      ],
+      "review_at": "2026-05-12T21:28:34+0900"
     },
     {
       "phase": 8,
