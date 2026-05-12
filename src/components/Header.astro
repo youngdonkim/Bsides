@@ -1,0 +1,29 @@
+---
+interface Props {
+  currentPage?: 'home' | 'progress' | 'notes';
+}
+const { currentPage } = Astro.props;
+const navItems = [
+  { key: 'progress', href: '/progress', label: '진행상황' },
+  { key: 'notes', href: '/notes', label: 'Notes' },
+] as const;
+---
+<header style="position: sticky; top: 0px; z-index: 50; background: rgba(243, 236, 220, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--b-line);">
+  <div class="b-container" style="display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px;">
+    <div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap;">
+      <a href="/" style="display: flex; align-items: baseline; gap: 8px;">
+        <span style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--b-ink); display: inline-flex; align-items: baseline; gap: 4px;">Bsides<span style="width: 6px; height: 6px; border-radius: 50%; background: var(--b-olive); display: inline-block; margin-bottom: 2px;"></span></span>
+      </a>
+      <nav style="display: flex; gap: 22px; font-size: 14.5px; font-weight: 500;">
+        {navItems.map((item) => {
+          const isActive = currentPage === item.key;
+          const style = isActive
+            ? 'color: var(--b-olive-deep); font-weight: 600; transition: color 160ms;'
+            : 'color: var(--b-ink-soft); transition: color 160ms;';
+          return <a href={item.href} data-nav={item.key} style={style}>{item.label}</a>;
+        })}
+      </nav>
+    </div>
+    <a href="/#apply" style="display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; background: var(--b-olive); color: var(--b-on-olive); border-radius: 999px; font-size: 14px; font-weight: 600; letter-spacing: 0.01px; white-space: nowrap;">객원 멤버 신청</a>
+  </div>
+</header>

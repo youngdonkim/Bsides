@@ -15,7 +15,9 @@
     {
       "phase": 1,
       "name": "tokens-and-layout",
-      "status": "pending"
+      "status": "completed",
+      "started_at": "2026-05-12T21:01:17+0900",
+      "completed_at": "2026-05-12T21:04:05+0900"
     },
     {
       "phase": 2,

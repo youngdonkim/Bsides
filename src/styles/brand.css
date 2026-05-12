@@ -1,0 +1,75 @@
+/* ============================================================
+   Bsides Brand — Design Tokens
+   Single source of truth for color · type · radii · shadow.
+   Generated from Bsides.html / design-system.html · v1-prototype.
+   ============================================================ */
+
+/* ---- Font families (Google Fonts / jsDelivr CDN) ---- */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-jp.min.css");
+
+:root {
+  /* ---- Surfaces · 종이 ---- */
+  --b-paper: #f3ecdc;
+  --b-paper-warm: #f7f1e3;
+  --b-paper-deep: #ebe1cc;
+  --b-card: #fbf6e8;
+  --b-card-elev: #fffaee;
+
+  /* ---- Ink · 글자색 ---- */
+  --b-ink: #2c2620;
+  --b-ink-soft: rgba(44, 38, 32, 0.68);
+  --b-ink-faint: rgba(44, 38, 32, 0.44);
+  --b-ink-mute: rgba(44, 38, 32, 0.22);
+  --b-ink-disable: rgba(44, 38, 32, 0.14);
+
+  /* ---- Olive accent ---- */
+  --b-olive: #5d6b2c;
+  --b-olive-deep: #424d1c;
+  --b-olive-bright: #7c8b40;
+  --b-olive-soft: #e3e3c5;
+  --b-olive-line: rgba(93, 107, 44, 0.32);
+  --b-on-olive: #f7f3e6;
+
+  /* ---- Sticky · 부속 ---- */
+  --b-note-yellow: #f5e5a7;
+  --b-note-pink: #f1c7b7;
+  --b-note-mint: #cfddb8;
+  --b-live: #c45a3a;
+  --b-live-soft: #f4dccb;
+
+  /* ---- Lines ---- */
+  --b-line: rgba(80, 65, 40, 0.16);
+  --b-line-strong: rgba(80, 65, 40, 0.32);
+  --b-line-ink: rgba(44, 38, 32, 0.88);
+
+  /* ---- Typography stacks ---- */
+  --b-font-sans: "Pretendard JP", "Pretendard", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
+  --b-font-hand: "Nanum Pen Script", "Gaegu", cursive;
+
+  /* ---- Radii ---- */
+  --b-r-8: 8px;
+  --b-r-12: 12px;
+  --b-r-16: 16px;
+  --b-r-20: 20px;
+  --b-r-24: 24px;
+  --b-r-32: 32px;
+
+  /* ---- Shadows ---- */
+  --b-shadow-1: 0 1px 0 rgba(80, 65, 40, 0.04), 0 2px 6px rgba(80, 65, 40, 0.04);
+  --b-shadow-2: 0 2px 0 rgba(80, 65, 40, 0.05), 0 6px 18px rgba(80, 65, 40, 0.06);
+  --b-shadow-note: 2px 4px 0 rgba(80, 65, 40, 0.06), 4px 10px 24px rgba(80, 65, 40, 0.10);
+}
+
+/* ---- Base ---- */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--b-paper);
+  color: var(--b-ink);
+  font-family: var(--b-font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
