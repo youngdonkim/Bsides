@@ -19,7 +19,7 @@ essence는 SNS 한 줄에 그대로 박힐 만큼 짧고 강해야 해요. Bside
 
 반말/존댓말은 상황에 따라. 디폴트는 친근. 멘토 톤보다 동료 톤. "혁신적인 · 10x · AI-powered" 같은 마케팅 클리셰는 일단 금지 리스트에 박아두면 카피 짤 때 자동 회피돼요.
 
-<div style="margin: 12px 0px; padding: 20px 22px; background: var(--b-note-mint); border-radius: 12px; transform: rotate(-1deg); box-shadow: var(--b-shadow-note);"><div style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-ink); margin-bottom: 6px;">한 스푼 메모</div><div style="font-family: var(--b-font-sans); font-size: 14.5px; line-height: 1.55; color: var(--b-ink);">금지 리스트 먼저 적기. AI 슬롭 8가지를 한 번 박아두면 매 단계 자동 회피.</div></div>
+<div class="b-note-card"><div class="b-note-card-title">한 스푼 메모</div><div class="b-note-card-body">금지 리스트 먼저 적기. AI 슬롭 8가지를 한 번 박아두면 매 단계 자동 회피.</div></div>
 
 ### 다음 단계로
 

@@ -19,7 +19,7 @@ workshop_text: "Phase Build는 워크샵에서 운영자가 자동 실행 중인
 
 API 일시 오류 vs 로직 버그를 구분. 외부 장애는 재시도, 내부 버그는 코드 수정. 자동화가 이 둘을 헷갈리면 무한 재시도로 시간 날아가요.
 
-<div style="margin: 12px 0px; padding: 20px 22px; background: var(--b-note-mint); border-radius: 12px; transform: rotate(-1deg); box-shadow: var(--b-shadow-note);"><div style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-ink); margin-bottom: 6px;">한 스푼 메모</div><div style="font-family: var(--b-font-sans); font-size: 14.5px; line-height: 1.55; color: var(--b-ink);">completed status 보고 안심하지 말기. needs_review는 자동으로 안 풀려요. 사용자가 응답해야 다음 phase가 출발.</div></div>
+<div class="b-note-card"><div class="b-note-card-title">한 스푼 메모</div><div class="b-note-card-body">completed status 보고 안심하지 말기. needs_review는 자동으로 안 풀려요. 사용자가 응답해야 다음 phase가 출발.</div></div>
 
 ### 다음 단계로
 

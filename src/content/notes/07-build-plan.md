@@ -19,7 +19,7 @@ phase 간 의존성을 그래프로. 의존성 없는 phase들끼리는 병렬, 
 
 보안·시크릿·DB 스키마·외부 호출·권한 상승은 사용자 승인 필수. 자동으로 진행 안 됨. needs_review 진입 조건을 명시해두면 자동화가 안전해요.
 
-<div style="margin: 12px 0px; padding: 20px 22px; background: var(--b-note-mint); border-radius: 12px; transform: rotate(-1deg); box-shadow: var(--b-shadow-note);"><div style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-ink); margin-bottom: 6px;">한 스푼 메모</div><div style="font-family: var(--b-font-sans); font-size: 14.5px; line-height: 1.55; color: var(--b-ink);">phase가 너무 크면 절반 자르기. 4~6시간 안에 끝나야 검증이 살아있어요.</div></div>
+<div class="b-note-card"><div class="b-note-card-title">한 스푼 메모</div><div class="b-note-card-body">phase가 너무 크면 절반 자르기. 4~6시간 안에 끝나야 검증이 살아있어요.</div></div>
 
 ### 다음 단계로
 

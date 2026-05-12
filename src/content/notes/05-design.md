@@ -19,7 +19,7 @@ Design 단계가 박혀야 Architecture가 추측 없이 진행돼요. 화면 �
 
 빈·로딩·에러·404를 design 단계에서 다 그림. 빌드에서 누락 X. Bsides는 이번 사이클에 site/ 안에 404·진행상황 0개·사이 회차·잘못된 slug 4가지 엣지 화면을 다 박았어요.
 
-<div style="margin: 12px 0px; padding: 20px 22px; background: var(--b-note-mint); border-radius: 12px; transform: rotate(-1deg); box-shadow: var(--b-shadow-note);"><div style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-ink); margin-bottom: 6px;">AI 슬롭 회피</div><div style="font-family: var(--b-font-sans); font-size: 14.5px; line-height: 1.55; color: var(--b-ink);">그라데이션 글로우·중앙 정렬 hero stack·"Powered by AI" 뱃지·매끈한 stock 사진 — 이 네 가지만 빼도 한국 brand 톤에 훨씬 가까워요.</div></div>
+<div class="b-note-card"><div class="b-note-card-title">AI 슬롭 회피</div><div class="b-note-card-body">그라데이션 글로우·중앙 정렬 hero stack·"Powered by AI" 뱃지·매끈한 stock 사진 — 이 네 가지만 빼도 한국 brand 톤에 훨씬 가까워요.</div></div>
 
 ### 다음 단계로
 

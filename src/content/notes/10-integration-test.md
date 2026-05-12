@@ -19,7 +19,7 @@ Sketch 단계에서 박은 핵심 시나리오 N개를 그대로 E2E case로. Bs
 
 새 기능이 옛 기능을 깨뜨리지 않는지. 너무 정밀한 테스트는 깨지기 쉬워서 유지 비용 ↑. 핵심 흐름 N개만 단단하게.
 
-<div style="margin: 12px 0px; padding: 20px 22px; background: var(--b-note-mint); border-radius: 12px; transform: rotate(-1deg); box-shadow: var(--b-shadow-note);"><div style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-ink); margin-bottom: 6px;">한 스푼 메모</div><div style="font-family: var(--b-font-sans); font-size: 14.5px; line-height: 1.55; color: var(--b-ink);">테스트가 너무 정밀하면 깨지기 쉬워요. 핵심 흐름 5개만 단단하게.</div></div>
+<div class="b-note-card"><div class="b-note-card-title">한 스푼 메모</div><div class="b-note-card-body">테스트가 너무 정밀하면 깨지기 쉬워요. 핵심 흐름 5개만 단단하게.</div></div>
 
 ### 다음 단계로
 

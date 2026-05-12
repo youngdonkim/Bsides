@@ -19,7 +19,7 @@ PRD 1차 초안은 늘 너무 길어요. 의도 단계의 가설 검증에 정�
 
 성능·보안·접근성·호환성·SEO. prototype 단계엔 산업 표준 인용 (Google Core Web Vitals · WCAG 2.2 AA 등). 정량 임계값은 mvp에서 측정 후 lock.
 
-<div style="margin: 12px 0px; padding: 20px 22px; background: var(--b-note-mint); border-radius: 12px; transform: rotate(-1deg); box-shadow: var(--b-shadow-note);"><div style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-ink); margin-bottom: 6px;">한 스푼 메모</div><div style="font-family: var(--b-font-sans); font-size: 14.5px; line-height: 1.55; color: var(--b-ink);">두 번째 패스에서 절반 잘라내기. 잘려도 좋은 게 진짜 Must.</div></div>
+<div class="b-note-card"><div class="b-note-card-title">한 스푼 메모</div><div class="b-note-card-body">두 번째 패스에서 절반 잘라내기. 잘려도 좋은 게 진짜 Must.</div></div>
 
 ### 다음 단계로
 

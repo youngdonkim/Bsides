@@ -10,23 +10,23 @@ import { OPERATOR } from '../../data/operator';
       <h2 class="t-title-1" style="margin-bottom: 16px;">객원 멤버 신청</h2>
       <p class="t-body" style="font-size: 17px; max-width: 580px; margin-bottom: 32px;">검토를 마쳤다면, 카톡으로 자기소개·신청 동기를 바로 보내주세요. 폼·로그인 없고, 우리가 답하면 다음 워크샵 일정을 보내드려요.</p>
       <ol style="margin: 0px 0px 36px; padding: 0px; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
-        <li style="padding: 16px 18px; background: var(--b-paper-warm); border-radius: 12px; border: 1px solid var(--b-line);">
+        <li style="padding: 16px 18px; background: var(--b-paper-warm); border-radius: var(--b-r-12); border: 1px solid var(--b-line);">
           <div style="font-family: var(--b-font-hand); font-size: 24px; color: var(--b-olive); line-height: 1; margin-bottom: 8px;">①</div>
           <div class="t-body-strong" style="margin-bottom: 2px;">운영자 카톡 응답</div>
           <div class="t-caption">보통 24시간 안에</div>
         </li>
-        <li style="padding: 16px 18px; background: var(--b-paper-warm); border-radius: 12px; border: 1px solid var(--b-line);">
+        <li style="padding: 16px 18px; background: var(--b-paper-warm); border-radius: var(--b-r-12); border: 1px solid var(--b-line);">
           <div style="font-family: var(--b-font-hand); font-size: 24px; color: var(--b-olive); line-height: 1; margin-bottom: 8px;">②</div>
           <div class="t-body-strong" style="margin-bottom: 2px;">다음 워크샵 일정 안내</div>
           <div class="t-caption">회차 일정·합류 방식</div>
         </li>
-        <li style="padding: 16px 18px; background: var(--b-paper-warm); border-radius: 12px; border: 1px solid var(--b-line);">
+        <li style="padding: 16px 18px; background: var(--b-paper-warm); border-radius: var(--b-r-12); border: 1px solid var(--b-line);">
           <div style="font-family: var(--b-font-hand); font-size: 24px; color: var(--b-olive); line-height: 1; margin-bottom: 8px;">③</div>
           <div class="t-body-strong" style="margin-bottom: 2px;">화상/오프라인 합류</div>
           <div class="t-caption">객원 멤버로 한 회 무료 참관</div>
         </li>
       </ol>
-      <a href={OPERATOR.kakaoOpen} target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; background: var(--b-olive); color: var(--b-on-olive); border-radius: 14px; font-size: 16px; font-weight: 600; white-space: nowrap; box-shadow: rgba(80, 65, 40, 0.08) 0px 1px 0px, rgba(93, 107, 44, 0.25) 0px 8px 20px; transition: 200ms;">카톡으로 신청하기<span aria-hidden="true">→</span></a>
+      <a class="b-btn-primary b-btn-primary--lg" href={OPERATOR.kakaoOpen} target="_blank" rel="noopener noreferrer">카톡으로 신청하기<span aria-hidden="true">→</span></a>
       <div class="t-caption" style="margin-top: 14px;">카톡이 어렵다면 <a href={`mailto:${OPERATOR.email}`} style="color: var(--b-olive); border-bottom: 1px solid var(--b-olive-line);">{OPERATOR.email}</a> 로 보내도 OK.</div>
     </div>
   </div>

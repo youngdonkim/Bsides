@@ -19,7 +19,7 @@ Architecture가 박힐 때 가장 중요한 건 결정에 **대안**과 **이유
 
 PRD Must 기능이 동작하려면 결정돼야 하는데 안 결정된 항목 찾기. 인증 흐름·로깅·에러 핸들링·환경 변수·CI/CD·관측성·시크릿 같은 횡단 영역.
 
-<div style="margin: 12px 0px; padding: 20px 22px; background: var(--b-note-mint); border-radius: 12px; transform: rotate(-1deg); box-shadow: var(--b-shadow-note);"><div style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-ink); margin-bottom: 6px;">한 스푼 메모</div><div style="font-family: var(--b-font-sans); font-size: 14.5px; line-height: 1.55; color: var(--b-ink);">대안 + 이유 한 줄 안 적으면 미래 토론이 끝없이 돌아와요. 적어두면 한 번에 끝.</div></div>
+<div class="b-note-card"><div class="b-note-card-title">한 스푼 메모</div><div class="b-note-card-body">대안 + 이유 한 줄 안 적으면 미래 토론이 끝없이 돌아와요. 적어두면 한 번에 끝.</div></div>
 
 ### 다음 단계로
 

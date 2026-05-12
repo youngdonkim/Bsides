@@ -59,7 +59,44 @@ button { font: inherit; color: inherit; background: none; border: 0px; padding: 
   :hover { transform: none !important; }
 }
 
-@keyframes b-pulse { 
+@keyframes b-pulse {
   0%, 100% { box-shadow: rgba(196, 90, 58, 0.5) 0px 0px 0px 0px; }
   50% { box-shadow: rgba(196, 90, 58, 0) 0px 0px 0px 6px; }
 }
+
+/* ---- Sticky note ---- */
+.b-sticky-note { padding: 16px 18px 18px; border-radius: var(--b-r-note); box-shadow: var(--b-shadow-note); font-family: var(--b-font-hand); font-size: 22px; line-height: 1.25; color: var(--b-ink); }
+.b-sticky-note--sm { font-size: 18px; padding: 14px 16px 16px; }
+.b-sticky-note--md { font-size: 19px; }
+.b-sticky-note--yellow { background: var(--b-note-yellow); }
+.b-sticky-note--mint { background: var(--b-note-mint); }
+.b-sticky-note--pink { background: var(--b-note-pink); }
+
+/* ---- Buttons ---- */
+.b-btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; background: var(--b-olive); color: var(--b-on-olive); border-radius: var(--b-r-14); font-size: 15.5px; font-weight: 600; box-shadow: var(--b-shadow-cta); transition: 200ms; }
+.b-btn-primary--lg { padding: 16px 28px; gap: 10px; font-size: 16px; box-shadow: var(--b-shadow-cta-lg); white-space: nowrap; }
+.b-btn-primary--sm { padding: 11px 20px; gap: 8px; font-size: 14.5px; border-radius: var(--b-r-12); box-shadow: none; }
+.b-btn-primary--md { padding: 12px 22px; gap: 8px; font-size: 14.5px; border-radius: var(--b-r-12); box-shadow: none; white-space: nowrap; }
+.b-btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; background: transparent; color: var(--b-olive-deep); border: 1.5px solid var(--b-olive); border-radius: var(--b-r-14); font-size: 15px; font-weight: 600; transition: 200ms; }
+.b-btn-pill { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; background: var(--b-olive); color: var(--b-on-olive); border-radius: var(--b-r-pill); font-size: 14px; font-weight: 600; letter-spacing: 0.01px; white-space: nowrap; }
+
+/* ---- Image cover ---- */
+.b-cover-shade { position: absolute; inset: 0; background-image: var(--b-cover-inner-shade); pointer-events: none; }
+.b-cover-caption { position: absolute; left: 14px; bottom: 12px; font-family: var(--b-font-hand); font-size: 18px; color: var(--b-ink-hand-faint); }
+
+/* ---- Hand-style caption ---- */
+.t-hand-caption { font-family: var(--b-font-hand); font-size: 18px; color: var(--b-ink-hand-faint); }
+
+/* ---- Header glass ---- */
+.b-header-glass { position: sticky; top: 0; z-index: 50; background: var(--b-paper-glass); backdrop-filter: blur(8px); border-bottom: 1px solid var(--b-line); }
+
+/* ---- Pill badge ---- */
+.b-badge-round { padding: 4px 12px; background: var(--b-olive-soft); color: var(--b-olive-deep); border-radius: var(--b-r-pill); font-size: 12.5px; font-weight: 600; }
+
+/* ---- Live pulse dot ---- */
+.b-live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--b-live); box-shadow: var(--b-shadow-pulse); animation: 2s ease-in-out 0s infinite normal none running b-pulse; }
+
+/* ---- Note card (markdown "한 스푼 메모") ---- */
+.b-note-card { margin: 12px 0; padding: 20px 22px; background: var(--b-note-mint); border-radius: var(--b-r-12); transform: rotate(-1deg); box-shadow: var(--b-shadow-note); }
+.b-note-card-title { font-family: var(--b-font-hand); font-size: 22px; color: var(--b-ink); margin-bottom: 6px; }
+.b-note-card-body { font-family: var(--b-font-sans); font-size: 14.5px; line-height: 1.55; color: var(--b-ink); }

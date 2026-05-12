@@ -19,7 +19,7 @@ workshop_text: "Retrospective는 워크샵에서 운영자·멤버가 한 시간
 
 룰 추가는 비용이에요. 매 세션마다 LLM context를 먹어요. 검증 안 된 룰을 박으면 정확도 ↓ · 신뢰 erosion. 회고에서 발견 5개 중 3개는 코멘트로 끝나야 정상.
 
-<div style="margin: 12px 0px; padding: 20px 22px; background: var(--b-note-mint); border-radius: 12px; transform: rotate(-1deg); box-shadow: var(--b-shadow-note);"><div style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-ink); margin-bottom: 6px;">한 스푼 메모</div><div style="font-family: var(--b-font-sans); font-size: 14.5px; line-height: 1.55; color: var(--b-ink);">회고에서 발견 5개 중 3개는 코멘트로 끝내야 정상. 다 룰화하면 인플레이션. 미래 본인이 룰 줄을 다 읽지도 못해요.</div></div>
+<div class="b-note-card"><div class="b-note-card-title">한 스푼 메모</div><div class="b-note-card-body">회고에서 발견 5개 중 3개는 코멘트로 끝내야 정상. 다 룰화하면 인플레이션. 미래 본인이 룰 줄을 다 읽지도 못해요.</div></div>
 
 ### 다음 사이클로
 

@@ -23,8 +23,8 @@
 
 ## 3. 코딩 컨벤션
 
-- **인라인 style 우선** (v1 prototype paste-and-go 원칙). CSS class 추출·refactor는 mvp 사이클에서.
 - **CSS variables (`--b-*`)** 가 디자인 토큰 SoT. `src/styles/brand.css`. hex·shadow·radii 박지 말고 토큰 참조.
+- **반복 패턴 클래스 추출** — sticky note, primary CTA, image cover shade 등 2회 이상 동일하게 반복되는 인라인 클러스터는 `src/styles/components.css`로 추출. layout-only 인라인(position·top·width·transform·rotate 등)은 인라인 유지.
 - **컴포넌트**: 한 화면 = 한 `.astro` 페이지 + 작은 컴포넌트 다수 (`src/components/`).
 - **콘텐츠 = Markdown collection** + Zod schema 검증 (`src/content.config.ts`).
 - **API 엔드포인트 0개**. 사용자 데이터 수집 0. 카톡 외부 link만.

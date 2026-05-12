@@ -19,7 +19,7 @@ Bsides 자체도 운영자가 미미로그 출시 직후 느낀 "혼자는 가�
 
 ① **출처 스토리** — 본인 경험 또는 타인 대화에서 끌어온 한 문단. ② **문제 정의** — 누가 무엇 때문에 어떤 상태인지 한 줄로. ③ **타겟** — 1차 사용자를 좁게 정의. ④ **성공 기준** — v1 sliceiclock에서 측정 가능한 숫자 2~3개. ⑤ **핵심 가설** — 검증 단위로 H1·H2·H3.
 
-<div style="margin: 12px 0px; padding: 20px 22px; background: var(--b-note-mint); border-radius: 12px; transform: rotate(-1deg); box-shadow: var(--b-shadow-note);"><div style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-ink); margin-bottom: 6px;">한 스푼 메모</div><div style="font-family: var(--b-font-sans); font-size: 14.5px; line-height: 1.55; color: var(--b-ink);">"잘 모르겠어"가 정상 답이에요. AI랑 운영자가 후보 2~3개 던져주면 골라서 다듬는 식으로. 빈 칸 못 채워서 멈추지 말기.</div></div>
+<div class="b-note-card"><div class="b-note-card-title">한 스푼 메모</div><div class="b-note-card-body">"잘 모르겠어"가 정상 답이에요. AI랑 운영자가 후보 2~3개 던져주면 골라서 다듬는 식으로. 빈 칸 못 채워서 멈추지 말기.</div></div>
 
 ### 다음 단계로
 

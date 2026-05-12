@@ -8,7 +8,7 @@ const slug = note.id;
 <a
   href={`/notes/${slug}`}
   data-note-step={d.num}
-  style="display: grid; grid-template-columns: 56px 1fr auto; gap: 16px; align-items: start; padding: 18px 22px; border-radius: 14px; border: 1px solid var(--b-line); background: var(--b-card); transition: background 160ms, border-color 160ms; color: inherit; text-decoration: none;"
+  style="display: grid; grid-template-columns: 56px 1fr auto; gap: 16px; align-items: start; padding: 18px 22px; border-radius: var(--b-r-14); border: 1px solid var(--b-line); background: var(--b-card); transition: background 160ms, border-color 160ms; color: inherit; text-decoration: none;"
 >
   <span style="font-family: var(--b-font-hand); font-size: 32px; color: var(--b-olive); line-height: 1;">{d.num}</span>
   <div>
@@ -20,6 +20,6 @@ const slug = note.id;
   </div>
   <span
     data-read-badge
-    style="display: none; align-items: center; gap: 4px; padding: 4px 10px; background: var(--b-olive-soft); color: var(--b-olive-deep); border-radius: 999px; font-size: 12px; font-weight: 600; height: fit-content; margin-top: 6px;"
+    style="display: none; align-items: center; gap: 4px; padding: 4px 10px; background: var(--b-olive-soft); color: var(--b-olive-deep); border-radius: var(--b-r-pill); font-size: 12px; font-weight: 600; height: fit-content; margin-top: 6px;"
   >✓ 읽음</span>
 </a>

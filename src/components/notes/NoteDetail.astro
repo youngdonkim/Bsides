@@ -18,7 +18,7 @@ const { Content } = await render(note);
   <div class="b-container" style="padding-top: 40px; padding-bottom: 16px; max-width: 760px;">
     <a href="/notes" class="t-caption" style="color: var(--b-ink-soft); display: inline-block; margin-bottom: 28px;">← Notes 목차</a>
     <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 16px; flex-wrap: wrap;">
-      <span style="padding: 4px 12px; background: var(--b-olive-soft); color: var(--b-olive-deep); border-radius: 999px; font-size: 12.5px; font-weight: 600;">{d.num} / 13</span>
+      <span class="b-badge-round">{d.num} / 13</span>
       <span class="t-caption" style="white-space: nowrap; color: var(--b-olive); text-transform: uppercase; letter-spacing: 0.08px;">{group.en}</span>
       <span style="color: var(--b-ink-faint);">·</span>
       <span class="t-caption" style="white-space: nowrap;">{group.ko} 그룹</span>
@@ -40,12 +40,12 @@ const { Content } = await render(note);
       <Content />
     </div>
 
-    <div style="margin-top: 56px; padding: 28px; background: var(--b-paper-warm); border: 1px solid var(--b-line); border-radius: 20px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; justify-content: space-between;">
+    <div style="margin-top: 56px; padding: 28px; background: var(--b-paper-warm); border: 1px solid var(--b-line); border-radius: var(--b-r-20); display: flex; gap: 20px; align-items: center; flex-wrap: wrap; justify-content: space-between;">
       <div style="max-width: 460px;">
         <div class="t-title-3" style="margin-bottom: 6px;">이걸 워크샵에선 어떻게 다루나?</div>
         <div class="t-caption" style="line-height: 1.55;">{d.workshop_text}</div>
       </div>
-      <a href="/#apply" style="padding: 12px 22px; background: var(--b-olive); color: var(--b-on-olive); border-radius: 12px; font-size: 14.5px; font-weight: 600; white-space: nowrap;">객원 멤버로 합류 →</a>
+      <a class="b-btn-primary b-btn-primary--md" href="/#apply">객원 멤버로 합류 →</a>
     </div>
 
     <nav class="b-detail-nav" style="margin-top: 56px; padding: 24px 0px 8px; border-top: 1px solid var(--b-line); display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">

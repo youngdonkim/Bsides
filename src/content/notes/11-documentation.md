@@ -19,7 +19,7 @@ workshop_text: "Documentation은 워크샵에서 운영자가 \"지금 작성한
 
 사이트 콘텐츠 추가 흐름·배포 절차·롤백 방법 같은 운영 일상. 굵직한 결정(스택 교체·DB 스키마 변경)은 ADR로 따로 기록.
 
-<div style="margin: 12px 0px; padding: 20px 22px; background: var(--b-note-mint); border-radius: 12px; transform: rotate(-1deg); box-shadow: var(--b-shadow-note);"><div style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-ink); margin-bottom: 6px;">한 스푼 메모</div><div style="font-family: var(--b-font-sans); font-size: 14.5px; line-height: 1.55; color: var(--b-ink);">코드 옆 1줄 README가 멀리 떨어진 wiki 100줄보다 자주 읽혀요. 짧고 정확한 게 미덕.</div></div>
+<div class="b-note-card"><div class="b-note-card-title">한 스푼 메모</div><div class="b-note-card-body">코드 옆 1줄 README가 멀리 떨어진 wiki 100줄보다 자주 읽혀요. 짧고 정확한 게 미덕.</div></div>
 
 ### 다음 단계로
 

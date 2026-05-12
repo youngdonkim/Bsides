@@ -19,7 +19,7 @@ Sketch에서 시각을 너무 빨리 잡으면 디자인 단계가 anchoring돼�
 
 prototype 단계엔 화면당 핵심 엣지 1개만. 메인의 "현재 멘토 없음", 목록의 "0개 빈 상태", 상세의 "잘못된 slug" 같은 거. mvp 사이클에서 5종으로 확장 (빈·로딩·에러·권한·오프라인).
 
-<div style="margin: 12px 0px; padding: 20px 22px; background: var(--b-note-mint); border-radius: 12px; transform: rotate(-1deg); box-shadow: var(--b-shadow-note);"><div style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-ink); margin-bottom: 6px;">한 스푼 메모</div><div style="font-family: var(--b-font-sans); font-size: 14.5px; line-height: 1.55; color: var(--b-ink);">ASCII로 시작. 시각 anchor에 끌려가지 않게. 결정이 박히면 디자인 단계가 두 배 빨라져요.</div></div>
+<div class="b-note-card"><div class="b-note-card-title">한 스푼 메모</div><div class="b-note-card-body">ASCII로 시작. 시각 anchor에 끌려가지 않게. 결정이 박히면 디자인 단계가 두 배 빨라져요.</div></div>
 
 ### 다음 단계로
 

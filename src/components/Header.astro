@@ -8,7 +8,7 @@ const navItems = [
   { key: 'notes', href: '/notes', label: 'Notes' },
 ] as const;
 ---
-<header style="position: sticky; top: 0px; z-index: 50; background: rgba(243, 236, 220, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--b-line);">
+<header class="b-header-glass">
   <div class="b-container" style="display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px;">
     <div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap;">
       <a href="/" style="display: flex; align-items: baseline; gap: 8px;">
@@ -24,6 +24,6 @@ const navItems = [
         })}
       </nav>
     </div>
-    <a href="/#apply" style="display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; background: var(--b-olive); color: var(--b-on-olive); border-radius: 999px; font-size: 14px; font-weight: 600; letter-spacing: 0.01px; white-space: nowrap;">객원 멤버 신청</a>
+    <a class="b-btn-pill" href="/#apply">객원 멤버 신청</a>
   </div>
 </header>
