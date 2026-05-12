@@ -1,5 +1,6 @@
 import { defineConfig, fontProviders } from 'astro/config';
 import vercel from '@astrojs/vercel';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   output: 'static',
@@ -9,6 +10,11 @@ export default defineConfig({
     imageService: true,
     imagesConfig: { sizes: [320, 640, 1280] },
   }),
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('design-system'),
+    }),
+  ],
   fonts: [
     {
       name: 'Nanum Pen Script',
