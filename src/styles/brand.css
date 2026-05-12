@@ -45,7 +45,7 @@
 
   /* ---- Typography stacks ---- */
   --b-font-sans: "Pretendard JP", "Pretendard", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", sans-serif;
-  --b-font-hand: "Nanum Pen Script", "Gaegu", cursive;
+  --b-font-hand: var(--b-font-hand-nps), var(--b-font-hand-gaegu), cursive;
 
   /* ---- Radii ---- */
   --b-r-8: 8px;
