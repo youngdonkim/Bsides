@@ -3,7 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/home/Hero.astro';
 import PersonaStrip from '../components/home/PersonaStrip.astro';
 import HowItWorks from '../components/home/HowItWorks.astro';
+import MentorCard from '../components/home/MentorCard.astro';
 import ApplySection from '../components/home/ApplySection.astro';
+import ProgressCard from '../components/ProgressCard.astro';
+import { CURRENT_MEMBER } from '../data/current-member';
+import { getSortedProgress } from '../lib/content';
+
+const recent = (await getSortedProgress()).slice(0, 3);
 ---
 <BaseLayout
   title="Bsides — LLM이 만든 그럴듯한 초고 위에, 감성 한 스푼."
@@ -15,7 +21,23 @@ import ApplySection from '../components/home/ApplySection.astro';
     <Hero />
     <PersonaStrip />
     <HowItWorks />
-    {/* MentorCard·ProgressCard grid는 Phase 4 */}
+    <MentorCard member={CURRENT_MEMBER} />
+    {recent.length > 0 && (
+      <section style="padding: 32px 0px 64px;">
+        <div class="b-container">
+          <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 28px; flex-wrap: wrap;">
+            <div>
+              <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.08px; color: var(--b-olive); text-transform: uppercase; margin-bottom: 8px;">Latest</div>
+              <h2 class="t-title-1" style="color: var(--b-ink);">최근 진행상황</h2>
+            </div>
+            <a href="/progress" style="font-size: 14px; font-weight: 500; color: var(--b-olive); border-bottom: 1px solid var(--b-olive-line); padding-bottom: 2px;">전체 보기 →</a>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+            {recent.map((post) => <ProgressCard post={post} />)}
+          </div>
+        </div>
+      </section>
+    )}
     <ApplySection />
   </main>
 </BaseLayout>
