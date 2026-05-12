@@ -57,7 +57,18 @@
     {
       "phase": 7,
       "name": "analytics-and-perf",
-      "status": "pending"
+      "status": "needs_review",
+      "started_at": "2026-05-12T21:23:40+0900",
+      "completed_at": "2026-05-12T21:31:00+0900",
+      "review_reasons": [
+        "external_api_new"
+      ],
+      "review_summary": "Vercel Web Analytics 활성 — PV·referrer·외부 link click 수집. cookie-less, client-side는 IP·UA 미수집(Vercel 서버 측 일시 처리). Lighthouse 결과: CLS solidly 통과(<0.01), LCP 3.7s로 임계 2.5s 초과 — x64 Node + Rosetta Chrome 측정 한계(Lighthouse CLI 자체가 이 조합을 거부). prod 배포 후 PageSpeed Insights 재측정 필요. retrospective(phase 13) 후속.",
+      "review_files": [
+        "astro.config.mjs",
+        "dist/index.html",
+        "planning/cycles/v1-prototype/build/phase7-output.json"
+      ]
     },
     {
       "phase": 8,

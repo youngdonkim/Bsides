@@ -1,0 +1,62 @@
+{
+  "phase": 7,
+  "name": "analytics-and-perf",
+  "measured_at": "2026-05-12T21:30:00+09:00",
+  "analytics": {
+    "vercel_web_analytics": "enabled",
+    "injection_verified": true,
+    "sample_files": [
+      "dist/index.html",
+      "dist/progress/index.html",
+      "dist/notes/01-intent/index.html"
+    ],
+    "script_path": "/_vercel/insights/script.js",
+    "cookie_less": true,
+    "user_data_collected_client_side": "none (PV·referrer only, no IP·UA client-side)"
+  },
+  "lighthouse": {
+    "preset": "desktop",
+    "throttling_method": "simulate",
+    "tool": "lighthouse@13.3.0 (programmatic, chrome-launcher)",
+    "environment_caveat": "Measurements taken on x64 Node + Rosetta-translated Chrome on Mac Silicon. Lighthouse CLI itself refuses this combo because of Rosetta perf overhead. LCP numbers are inflated vs. real prod; CLS/INP measurements are still reliable. Prod measurement should re-run from a clean arm64 Node or from PageSpeed Insights against the deployed Vercel URL.",
+    "pages": [
+      {
+        "url": "/",
+        "report": "/tmp/lh-home.json",
+        "lcp_ms": 3720.78,
+        "cls": 0.003052,
+        "tbt_ms": 567.62,
+        "performance_score": 0.55
+      },
+      {
+        "url": "/progress/",
+        "report": "/tmp/lh-progress.json",
+        "lcp_ms": 3666.14,
+        "cls": 0.000323,
+        "tbt_ms": 425.31,
+        "performance_score": 0.60
+      },
+      {
+        "url": "/notes/01-intent/",
+        "report": "/tmp/lh-note.json",
+        "lcp_ms": 3675.10,
+        "cls": 0.001502,
+        "tbt_ms": 370.99,
+        "performance_score": 0.63
+      }
+    ]
+  },
+  "thresholds": {
+    "lcp_target_ms": 2500,
+    "cls_target": 0.1,
+    "inp_target_ms": 200,
+    "cls_pass": true,
+    "lcp_pass": false,
+    "inp_pass": "not measurable via Lighthouse (lab tool); needs RUM",
+    "note": "PRD §성능 thresholds use 75th-percentile RUM in prod. prototype 단계는 측정·기록만 (PRD §5.1). LCP miss to be revisited in retrospective(phase 13) — likely Rosetta artifact; verify against deployed Vercel URL with PageSpeed Insights."
+  },
+  "retrospective_followups": [
+    "Re-measure CWV against deployed bsides.kr via PageSpeed Insights (real-device + real CrUX field data).",
+    "If LCP still > 2.5s in prod, investigate Google Fonts subsetting + Pretendard payload + above-fold critical CSS."
+  ]
+}
