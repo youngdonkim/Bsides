@@ -57,9 +57,9 @@
     {
       "phase": 7,
       "name": "analytics-and-perf",
-      "status": "needs_review",
+      "status": "completed",
       "started_at": "2026-05-12T21:23:40+0900",
-      "completed_at": "2026-05-12T21:31:00+0900",
+      "completed_at": "2026-05-12T21:33:12+0900",
       "review_reasons": [
         "external_api_new"
       ],
@@ -69,12 +69,24 @@
         "dist/index.html",
         "planning/cycles/v1-prototype/build/phase7-output.json"
       ],
-      "review_at": "2026-05-12T21:28:34+0900"
+      "review_at": "2026-05-12T21:28:34+0900",
+      "user_approved": true,
+      "approval_note": "Vercel Web Analytics 정합 + LCP 측정 환경 한계(Rosetta) — prototype stage 측정·기록만 게이트 적용. PSI prod 재측정은 phase 13 retro 후속."
     },
     {
       "phase": 8,
       "name": "deploy-and-domain",
-      "status": "pending"
+      "status": "needs_review",
+      "started_at": "2026-05-12T21:33:12+0900",
+      "completed_at": "2026-05-12T21:54:37+0900",
+      "review_reasons": [
+        "external_infra_first_connection"
+      ],
+      "review_summary": "Vercel 프로젝트 link 확인(.vercel/project.json: prj_lwbVDftUubeNLDzJy8ACR1kJBU44) + 첫 production deploy 성공 + 도메인 결정 변경 반영. 사용자 결정: bsides.kr 미구매(무료 티어) → Vercel 기본 도메인 사용. bsides.kr alias는 자동 등록되었으나 사용자 미소유라 제거. 자동 생성 vercel.app URL(bsides-youngdonkims-projects.vercel.app)은 Hobby plan deployment protection으로 401 — 사용자 custom alias bsides-one.vercel.app가 공개 production URL. AC 6개 전부 통과 + HSTS 정상.",
+      "review_files": [
+        ".vercel/project.json (gitignored)",
+        "https://bsides-one.vercel.app/"
+      ]
     }
   ]
 }

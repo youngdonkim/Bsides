@@ -38,3 +38,4 @@ yarn-error.log*
 .tmp-*/
 .tmp-*.html
 .tmp-*.json
+.vercel
