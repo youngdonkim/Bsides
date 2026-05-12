@@ -8,7 +8,9 @@
     {
       "phase": 0,
       "name": "setup-and-tooling",
-      "status": "pending"
+      "status": "completed",
+      "started_at": "2026-05-12T20:58:43+0900",
+      "completed_at": "2026-05-12T21:01:30+0900"
     },
     {
       "phase": 1,
