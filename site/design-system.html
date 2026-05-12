@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bsides — Design System</title>
+<link rel="stylesheet" href="styles/brand.css" />
+<link rel="stylesheet" href="styles/design-system.css" />
+
+</head>
+<body>
+<main>
+
+  <header class="ds-header">
+    <div>
+      <div style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-olive); margin-bottom: 4px;">Bsides — Design System</div>
+      <h1 class="t-display">따뜻한 종이 위에,<br/><span class="b-hand-underline">사람 한 스푼.</span></h1>
+    </div>
+    <div class="meta">
+      <div><b>v0.1</b> · 2026-05</div>
+      <div>warm neutral + olive accent</div>
+      <div>brand-guide.md / Pretendard JP</div>
+    </div>
+  </header>
+
+  <!-- ─── Mascot ─────────────────────────────────────────────────── -->
+  <section class="ds-section" id="mascot">
+    <h2>Mascot</h2>
+    <p class="lede">스푼이. "사람 한 스푼"을 들고 다니는 작은 반죽 친구.</p>
+
+    <div class="mascot-stage">
+      <div class="figure">
+        <!-- Spooni — primary pose -->
+        <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-label="Spooni mascot">
+          <defs>
+            <filter id="paper" x="-10%" y="-10%" width="120%" height="120%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+              <feColorMatrix values="0 0 0 0 0.31  0 0 0 0 0.27  0 0 0 0 0.21  0 0 0 0.06 0"/>
+              <feComposite in2="SourceGraphic" operator="in"/>
+              <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- soft cast shadow -->
+          <ellipse cx="160" cy="280" rx="78" ry="9" fill="rgba(80,65,40,0.10)"/>
+
+          <!-- body — dough blob with hand-drawn outline -->
+          <path d="M 92 188
+                   C 80 130, 130 78, 170 80
+                   C 220 82, 245 130, 235 178
+                   C 228 220, 198 250, 158 250
+                   C 118 250, 100 222, 92 188 Z"
+                fill="#f7e7c5" stroke="#2c2620" stroke-width="3.2"
+                stroke-linejoin="round" stroke-linecap="round"
+                filter="url(#paper)"/>
+
+          <!-- little flour smudge on body -->
+          <ellipse cx="125" cy="200" rx="14" ry="4" fill="#fbf6e8" opacity="0.7"/>
+          <ellipse cx="205" cy="155" rx="8" ry="3" fill="#fbf6e8" opacity="0.7"/>
+
+          <!-- cheek blush -->
+          <ellipse cx="120" cy="175" rx="10" ry="6" fill="#f1c7b7" opacity="0.75"/>
+          <ellipse cx="210" cy="175" rx="10" ry="6" fill="#f1c7b7" opacity="0.75"/>
+
+          <!-- eyes — closed/happy arches -->
+          <path d="M 130 162 q 7 -8 14 0" stroke="#2c2620" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+          <path d="M 186 162 q 7 -8 14 0" stroke="#2c2620" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+
+          <!-- mouth — small content smile -->
+          <path d="M 152 192 q 8 7 16 0" stroke="#2c2620" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+
+          <!-- little antenna / sprout (idea hint) -->
+          <path d="M 168 80 q -2 -14 8 -22" stroke="#5d6b2c" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M 176 60 q 10 -2 8 -12" stroke="#5d6b2c" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <circle cx="184" cy="48" r="3" fill="#5d6b2c"/>
+
+          <!-- spoon — held in left "hand" -->
+          <g transform="translate(50 150) rotate(-22)">
+            <rect x="0" y="0" width="6" height="78" rx="3" fill="#5d6b2c"/>
+            <ellipse cx="3" cy="-2" rx="18" ry="13" fill="#7c8b40" stroke="#424d1c" stroke-width="2.2"/>
+            <!-- spoon contents = a little dot (the "person" being added) -->
+            <circle cx="3" cy="-2" r="5" fill="#f5e5a7"/>
+            <!-- label tag dangling -->
+            <line x1="3" y1="60" x2="-18" y2="78" stroke="#2c2620" stroke-width="1.2"/>
+            <rect x="-40" y="74" width="32" height="14" rx="2" fill="#f5e5a7" stroke="#2c2620" stroke-width="1.4" transform="rotate(8 -24 81)"/>
+            <text x="-24" y="84" font-family="Nanum Pen Script, cursive" font-size="11" fill="#2c2620" text-anchor="middle" transform="rotate(8 -24 81)">사람</text>
+          </g>
+
+          <!-- right tiny arm (notebook) -->
+          <g transform="translate(232 210)">
+            <rect x="0" y="0" width="26" height="20" rx="2" fill="#fbf6e8" stroke="#2c2620" stroke-width="2"/>
+            <line x1="4" y1="6"  x2="22" y2="6"  stroke="#5d6b2c" stroke-width="1.4"/>
+            <line x1="4" y1="11" x2="22" y2="11" stroke="#5d6b2c" stroke-width="1.4"/>
+            <line x1="4" y1="16" x2="16" y2="16" stroke="#5d6b2c" stroke-width="1.4"/>
+          </g>
+        </svg>
+      </div>
+
+      <div>
+        <h3>스푼이 (Spooni)</h3>
+        <p>
+          LLM이 만든 그럴듯한 초고 위에 "사람 한 스푼"을 떠 넣는 작은 반죽 친구.
+          만들어지는 중인 모양 — 다 완성된 캐릭터보다, 손이 가야 비로소 모양이 잡히는 무드.
+        </p>
+        <dl class="traits">
+          <dt>역할</dt> <dd>회차 안내·빈 상태 일러스트·로딩 placeholder</dd>
+          <dt>금지</dt> <dd>너무 정제된 라인·그라데이션·하이라이트·이모지 합성</dd>
+          <dt>색</dt>   <dd>몸통 <code>#f7e7c5</code> · 윤곽 <code>#2c2620</code> · 새싹/스푼 <code>#5d6b2c</code></dd>
+          <dt>크기</dt> <dd>최소 80px, 권장 120–320px. 그 이상은 멀티 포즈 권장</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="mascot-row">
+      <!-- pose 2: thinking -->
+      <div class="pose">
+        <svg viewBox="0 0 160 160">
+          <ellipse cx="80" cy="142" rx="40" ry="5" fill="rgba(80,65,40,0.10)"/>
+          <path d="M 42 96 C 36 60, 70 38, 90 40 C 118 42, 130 70, 124 96 C 118 122, 100 134, 82 134 C 62 134, 48 118, 42 96 Z"
+                fill="#f7e7c5" stroke="#2c2620" stroke-width="2.6" stroke-linejoin="round"/>
+          <ellipse cx="58" cy="92" rx="6" ry="3.5" fill="#f1c7b7" opacity="0.7"/>
+          <ellipse cx="108" cy="92" rx="6" ry="3.5" fill="#f1c7b7" opacity="0.7"/>
+          <circle cx="64" cy="82" r="2.2" fill="#2c2620"/>
+          <circle cx="100" cy="82" r="2.2" fill="#2c2620"/>
+          <path d="M 75 104 q 6 -3 12 0" stroke="#2c2620" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- thought bubble -->
+          <circle cx="118" cy="48" r="4"  fill="#fbf6e8" stroke="#2c2620" stroke-width="1.6"/>
+          <circle cx="128" cy="36" r="6"  fill="#fbf6e8" stroke="#2c2620" stroke-width="1.6"/>
+          <circle cx="142" cy="22" r="10" fill="#fbf6e8" stroke="#2c2620" stroke-width="2"/>
+          <text x="142" y="26" font-family="Nanum Pen Script, cursive" font-size="14" fill="#5d6b2c" text-anchor="middle">?</text>
+        </svg>
+        <div class="name">고민하는 스푼이</div>
+        <div class="use">빈 상태 · 검색 결과 0건</div>
+      </div>
+
+      <!-- pose 3: cheering -->
+      <div class="pose">
+        <svg viewBox="0 0 160 160">
+          <ellipse cx="80" cy="142" rx="40" ry="5" fill="rgba(80,65,40,0.10)"/>
+          <path d="M 42 96 C 36 60, 70 38, 90 40 C 118 42, 130 70, 124 96 C 118 122, 100 134, 82 134 C 62 134, 48 118, 42 96 Z"
+                fill="#f7e7c5" stroke="#2c2620" stroke-width="2.6" stroke-linejoin="round"/>
+          <path d="M 60 82 q 6 -7 12 0" stroke="#2c2620" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          <path d="M 96 82 q 6 -7 12 0" stroke="#2c2620" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          <path d="M 70 100 q 10 10 22 0" stroke="#2c2620" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+          <!-- confetti bits -->
+          <rect x="30" y="34" width="4" height="10" fill="#c45a3a" transform="rotate(-20 32 39)"/>
+          <rect x="120" y="30" width="4" height="10" fill="#5d6b2c" transform="rotate(25 122 35)"/>
+          <circle cx="48" cy="24" r="3" fill="#f5e5a7"/>
+          <circle cx="140" cy="48" r="3" fill="#cfddb8"/>
+        </svg>
+        <div class="name">기뻐하는 스푼이</div>
+        <div class="use">출시 완료 · 회차 종료</div>
+      </div>
+
+      <!-- pose 4: writing -->
+      <div class="pose">
+        <svg viewBox="0 0 160 160">
+          <ellipse cx="80" cy="142" rx="40" ry="5" fill="rgba(80,65,40,0.10)"/>
+          <path d="M 42 96 C 36 60, 70 38, 90 40 C 118 42, 130 70, 124 96 C 118 122, 100 134, 82 134 C 62 134, 48 118, 42 96 Z"
+                fill="#f7e7c5" stroke="#2c2620" stroke-width="2.6" stroke-linejoin="round"/>
+          <path d="M 60 86 q 6 -6 12 0" stroke="#2c2620" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+          <path d="M 96 86 q 6 -6 12 0" stroke="#2c2620" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+          <path d="M 76 104 q 6 4 12 0" stroke="#2c2620" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- notebook -->
+          <rect x="36" y="112" width="48" height="32" rx="2" fill="#fbf6e8" stroke="#2c2620" stroke-width="1.8"/>
+          <line x1="42" y1="120" x2="78" y2="120" stroke="#5d6b2c" stroke-width="1.4"/>
+          <line x1="42" y1="128" x2="78" y2="128" stroke="#5d6b2c" stroke-width="1.4"/>
+          <line x1="42" y1="136" x2="64" y2="136" stroke="#5d6b2c" stroke-width="1.4"/>
+          <!-- pencil -->
+          <g transform="translate(90 108) rotate(35)">
+            <rect x="0" y="0" width="4" height="22" fill="#c45a3a"/>
+            <polygon points="0,22 4,22 2,28" fill="#2c2620"/>
+          </g>
+        </svg>
+        <div class="name">기록하는 스푼이</div>
+        <div class="use">진행상황 · 회차 노트</div>
+      </div>
+
+      <!-- pose 5: sleeping -->
+      <div class="pose">
+        <svg viewBox="0 0 160 160">
+          <ellipse cx="80" cy="142" rx="40" ry="5" fill="rgba(80,65,40,0.10)"/>
+          <path d="M 38 110 C 32 92, 56 76, 78 78 C 110 80, 130 96, 126 112 C 122 128, 100 134, 80 134 C 60 134, 44 124, 38 110 Z"
+                fill="#f7e7c5" stroke="#2c2620" stroke-width="2.6" stroke-linejoin="round"/>
+          <path d="M 60 102 q 6 -4 12 0" stroke="#2c2620" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+          <path d="M 96 102 q 6 -4 12 0" stroke="#2c2620" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+          <path d="M 78 116 q 4 2 8 0" stroke="#2c2620" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <text x="120" y="58" font-family="Nanum Pen Script, cursive" font-size="22" fill="#5d6b2c">z</text>
+          <text x="132" y="42" font-family="Nanum Pen Script, cursive" font-size="16" fill="#5d6b2c">z</text>
+        </svg>
+        <div class="name">자는 스푼이</div>
+        <div class="use">404 · 모집 종료</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Colors ─────────────────────────────────────────────────── -->
+  <section class="ds-section" id="color">
+    <h2>Colors</h2>
+    <p class="lede">따뜻한 종이 + 올리브. 흰색·순흑·전기블루 없음.</p>
+
+    <h3 style="font-size:14px;color:var(--b-ink-faint);font-weight:600;margin:8px 0 12px;letter-spacing:0.06em;text-transform:uppercase;">Surface · 종이</h3>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="chip" style="background:var(--b-paper)"></div><div class="meta"><span class="name">Paper</span><span class="token">--b-paper</span><span class="hex">#f3ecdc</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--b-paper-warm)"></div><div class="meta"><span class="name">Paper warm</span><span class="token">--b-paper-warm</span><span class="hex">#f7f1e3</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--b-paper-deep)"></div><div class="meta"><span class="name">Paper deep</span><span class="token">--b-paper-deep</span><span class="hex">#ebe1cc</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--b-card)"></div><div class="meta"><span class="name">Card</span><span class="token">--b-card</span><span class="hex">#fbf6e8</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--b-card-elev)"></div><div class="meta"><span class="name">Card elev</span><span class="token">--b-card-elev</span><span class="hex">#fffaee</span></div></div>
+    </div>
+
+    <h3 style="font-size:14px;color:var(--b-ink-faint);font-weight:600;margin:28px 0 12px;letter-spacing:0.06em;text-transform:uppercase;">Olive accent</h3>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="chip" style="background:var(--b-olive)"></div><div class="meta"><span class="name">Olive</span><span class="token">--b-olive</span><span class="hex">#5d6b2c</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--b-olive-deep)"></div><div class="meta"><span class="name">Olive deep</span><span class="token">--b-olive-deep</span><span class="hex">#424d1c</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--b-olive-bright)"></div><div class="meta"><span class="name">Olive bright</span><span class="token">--b-olive-bright</span><span class="hex">#7c8b40</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--b-olive-soft)"></div><div class="meta"><span class="name">Olive soft</span><span class="token">--b-olive-soft</span><span class="hex">#e3e3c5</span></div></div>
+    </div>
+
+    <h3 style="font-size:14px;color:var(--b-ink-faint);font-weight:600;margin:28px 0 12px;letter-spacing:0.06em;text-transform:uppercase;">Ink · 글자색</h3>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="chip" style="background:var(--b-ink)"></div><div class="meta"><span class="name">Ink</span><span class="token">--b-ink</span><span class="hex">#2c2620</span></div></div>
+      <div class="swatch"><div class="chip" style="background:rgba(44,38,32,0.68)"></div><div class="meta"><span class="name">Ink soft</span><span class="token">--b-ink-soft</span><span class="hex">68% ink</span></div></div>
+      <div class="swatch"><div class="chip" style="background:rgba(44,38,32,0.44)"></div><div class="meta"><span class="name">Ink faint</span><span class="token">--b-ink-faint</span><span class="hex">44% ink</span></div></div>
+    </div>
+
+    <h3 style="font-size:14px;color:var(--b-ink-faint);font-weight:600;margin:28px 0 12px;letter-spacing:0.06em;text-transform:uppercase;">Sticky · 부속</h3>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="chip" style="background:var(--b-note-yellow)"></div><div class="meta"><span class="name">Note yellow</span><span class="token">--b-note-yellow</span><span class="hex">#f5e5a7</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--b-note-pink)"></div><div class="meta"><span class="name">Note pink</span><span class="token">--b-note-pink</span><span class="hex">#f1c7b7</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--b-note-mint)"></div><div class="meta"><span class="name">Note mint</span><span class="token">--b-note-mint</span><span class="hex">#cfddb8</span></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--b-live)"></div><div class="meta"><span class="name">Live (warm rust)</span><span class="token">--b-live</span><span class="hex">#c45a3a</span></div></div>
+    </div>
+  </section>
+
+  <!-- ─── Type ───────────────────────────────────────────────────── -->
+  <section class="ds-section" id="type">
+    <h2>Typography</h2>
+    <p class="lede">Pretendard JP 본문 + Nanum Pen Script 손글씨 한 스푼.</p>
+
+    <div class="type-row">
+      <div class="label"><b>Display</b>clamp(40, 6vw, 64)<br/>700 / -0.025em</div>
+      <div class="specimen t-display">LLM이 만든 그럴듯한 초고 위에,<br/><span class="b-hand-underline">사람 한 스푼.</span></div>
+    </div>
+    <div class="type-row">
+      <div class="label"><b>Title 1</b>clamp(26, 3.2vw, 34)<br/>700 / -0.02em</div>
+      <div class="specimen t-title-1">운영방식 — 한 사이클, 한 멤버, 서비스 출시</div>
+    </div>
+    <div class="type-row">
+      <div class="label"><b>Title 2</b>22px / 700</div>
+      <div class="specimen t-title-2">이번 사이클 멤버</div>
+    </div>
+    <div class="type-row">
+      <div class="label"><b>Body</b>16px / 1.65 / 400</div>
+      <div class="specimen t-body" style="max-width:540px;">운영자가 단계별로 강의·코칭을 하고, 멤버 한 명이 그 사이클의 주인공이 되어 자기 프로젝트를 출시한다. 객원 멤버는 자기 분야에서 거든다.</div>
+    </div>
+    <div class="type-row">
+      <div class="label"><b>Caption</b>12.5px / 500 / 0.02em</div>
+      <div class="specimen t-caption">2026-05-18 · 3회차 · 멤버 김도현</div>
+    </div>
+    <div class="type-row">
+      <div class="label"><b>Hand</b>Nanum Pen Script<br/>32–48px 권장</div>
+      <div class="specimen t-hand" style="font-size:38px;color:var(--b-ink);">손글씨는 강조 한 스푼.</div>
+    </div>
+  </section>
+
+  <!-- ─── Components ─────────────────────────────────────────────── -->
+  <section class="ds-section" id="components">
+    <h2>Components</h2>
+    <p class="lede">제품에서 쓰는 그대로. 새로 만들지 말고 여기서 가져다 써.</p>
+
+    <div class="comp-grid">
+      <div class="comp">
+        <h3>Buttons</h3>
+        <div class="stage">
+          <a class="btn-primary" href="#">객원 멤버 신청 <span aria-hidden="true">→</span></a>
+          <a class="btn-secondary" href="#">진행상황 보기</a>
+          <a class="btn-ghost" href="#">자세히</a>
+        </div>
+        <div class="note">동사로 시작 + 구체 행동. "더 알아보기" · "지금 시작" 같은 모호한 카피 금지.</div>
+      </div>
+
+      <div class="comp">
+        <h3>Live pill</h3>
+        <div class="stage">
+          <span class="pill"><span class="dot"></span>현재 워크샵 진행 중</span>
+          <span class="pill"><span class="dot"></span>다음 워크샵 D-7</span>
+        </div>
+        <div class="note">현재 상태·카운트다운 등 실시간성 정보에만. 빨간색 아님 — warm rust.</div>
+      </div>
+
+      <div class="comp">
+        <h3>Sticky note</h3>
+        <div class="stage" style="gap:24px;padding:28px 20px 36px;">
+          <div class="sticky">3개월, 6회차<br/>워크샵 → 출시</div>
+          <div class="sticky pink">객원 멤버도<br/>환영</div>
+          <div class="sticky mint">"초고 위에<br/>사람 한 스푼."</div>
+        </div>
+        <div class="note">강조·여백·정서적 액센트용. 본문 텍스트는 절대 스티키노트로 대체하지 않는다.</div>
+      </div>
+
+      <div class="comp">
+        <h3>Card</h3>
+        <div class="stage column">
+          <div class="card-demo">
+            <div class="t-caption" style="color:var(--b-olive);">3회차 · 2026-05-18</div>
+            <div class="t-title-2" style="color:var(--b-ink);">미미로그 출시 후기와 다음 사이클</div>
+            <div class="t-body" style="font-size:14px;">멤버 김도현 · 본인 프로젝트의 첫 출시. 회고와 다음 사이클 안내.</div>
+            <a class="btn-ghost" href="#" style="margin-top:6px;">자세히</a>
+          </div>
+        </div>
+        <div class="note">radius 20px · paper-deep 1px line · shadow-2. 카드 내부 패딩 22px.</div>
+      </div>
+
+      <div class="comp">
+        <h3>Hand-drawn underline</h3>
+        <div class="stage">
+          <span class="t-title-1"><span class="b-hand-underline">사람 한 스푼.</span></span>
+        </div>
+        <div class="note">한 문장에 1회 이하. 핵심 단어에만. 글자 size 24px 이상에서만 자연스러움.</div>
+      </div>
+
+      <div class="comp">
+        <h3>Hand arrow</h3>
+        <div class="stage">
+          <span style="font-family:var(--b-font-hand);font-size:32px;color:var(--b-olive);">→</span>
+          <span style="font-family:var(--b-font-hand);font-size:32px;color:var(--b-olive);">↻</span>
+          <span style="font-family:var(--b-font-hand);font-size:32px;color:var(--b-olive);">↳</span>
+        </div>
+        <div class="note">단계 카드 사이·릴레이 전환·중간 강조. 빌트인 → 가 너무 깔끔할 때 대체.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Spacing / shadow / radius ──────────────────────────────── -->
+  <section class="ds-section" id="space">
+    <h2>Spacing &amp; Surfaces</h2>
+    <p class="lede">숨 쉬는 여백. 셋 중에 헷갈리면 항상 한 단계 더 넓게.</p>
+
+    <div class="comp-grid">
+      <div class="comp">
+        <h3>Spacing scale</h3>
+        <div class="space-row">
+          <div class="row"><span>4 / xs</span><span class="bar" style="width:4px"></span><span>4px</span></div>
+          <div class="row"><span>8 / sm</span><span class="bar" style="width:8px"></span><span>8px</span></div>
+          <div class="row"><span>12 / md</span><span class="bar" style="width:12px"></span><span>12px</span></div>
+          <div class="row"><span>16 / lg</span><span class="bar" style="width:16px"></span><span>16px</span></div>
+          <div class="row"><span>24 / xl</span><span class="bar" style="width:24px"></span><span>24px</span></div>
+          <div class="row"><span>32 / 2xl</span><span class="bar" style="width:32px"></span><span>32px</span></div>
+          <div class="row"><span>48 / 3xl</span><span class="bar" style="width:48px"></span><span>48px</span></div>
+          <div class="row"><span>64 / 4xl</span><span class="bar" style="width:64px"></span><span>64px</span></div>
+        </div>
+      </div>
+
+      <div class="comp">
+        <h3>Radii</h3>
+        <div class="stage" style="gap:14px;">
+          <div style="width:52px;height:52px;background:var(--b-card);border:1px solid var(--b-line);border-radius:8px;"></div>
+          <div style="width:52px;height:52px;background:var(--b-card);border:1px solid var(--b-line);border-radius:12px;"></div>
+          <div style="width:52px;height:52px;background:var(--b-card);border:1px solid var(--b-line);border-radius:16px;"></div>
+          <div style="width:52px;height:52px;background:var(--b-card);border:1px solid var(--b-line);border-radius:20px;"></div>
+          <div style="width:52px;height:52px;background:var(--b-card);border:1px solid var(--b-line);border-radius:24px;"></div>
+          <div style="width:52px;height:52px;background:var(--b-card);border:1px solid var(--b-line);border-radius:999px;"></div>
+        </div>
+        <div class="note">버튼 999 · 카드 20 · 입력 12. 24보다 큰 라운드는 부드러움 과잉.</div>
+      </div>
+
+      <div class="comp">
+        <h3>Shadows</h3>
+        <div class="shadow-row">
+          <div class="ex s1">--b-shadow-1<br/>hover-up</div>
+          <div class="ex s2">--b-shadow-2<br/>card resting</div>
+          <div class="ex sn">--b-shadow-note<br/>sticky note</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Voice ──────────────────────────────────────────────────── -->
+  <section class="ds-section" id="voice">
+    <h2>Voice &amp; Copy</h2>
+    <p class="lede">친구 같은 동료 톤. 위에서 가르치지 않는다.</p>
+
+    <div class="rules">
+      <div class="rule do">
+        <div class="tag">✓ Do</div>
+        <div class="copy">"LLM이 만든 그럴듯한 초고 위에, 사람 한 스푼."<br/><span style="color:var(--b-ink-faint);font-size:12.5px;">— 정확한 의도 + 가벼움 한 스푼</span></div>
+      </div>
+      <div class="rule dont">
+        <div class="tag">✗ Don't</div>
+        <div class="copy">"혁신적인 AI 워크플로우로 10x 생산성을!"<br/><span style="color:var(--b-ink-faint);font-size:12.5px;">— hype·마케팅 클리셰</span></div>
+      </div>
+      <div class="rule do">
+        <div class="tag">✓ Do</div>
+        <div class="copy">"객원 멤버 신청하기" · "카톡으로 신청하기"<br/><span style="color:var(--b-ink-faint);font-size:12.5px;">— 동사 + 구체 행동</span></div>
+      </div>
+      <div class="rule dont">
+        <div class="tag">✗ Don't</div>
+        <div class="copy">"더 알아보기" · "지금 시작" · "Click here"<br/><span style="color:var(--b-ink-faint);font-size:12.5px;">— 무엇을 하는지 모호</span></div>
+      </div>
+      <div class="rule do">
+        <div class="tag">✓ Do</div>
+        <div class="copy">친근·반말 OK, 존댓말도 OK. 상황에 따라 섞는다.</div>
+      </div>
+      <div class="rule dont">
+        <div class="tag">✗ Don't</div>
+        <div class="copy">멘토가 위에서 가르치는 톤. "여러분, 자~ 이제..."</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

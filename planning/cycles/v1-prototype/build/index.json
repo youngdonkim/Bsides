@@ -1,0 +1,54 @@
+{
+  "project": "Bsides",
+  "cycle": "v1-prototype",
+  "prompt": "Bsides v1-prototype 빌드: site/ design SoT (메인 · index-between-cycles · progress 트랙 · notes 13단계 · 404 · design-system · OG · favicon)를 Astro 5.x + @astrojs/vercel + content collections + Vercel Web Analytics 스택으로 마이그레이션. SSG, DB 없음, API 0개, 사용자 데이터 수집 0. 도메인 bsides.kr. 직렬 9 phase (0~8) — 셋업 · 토큰·layout · 메인 static shell · collections·types · progress 트랙 · notes 트랙 · edge·meta · analytics·perf · deploy·domain.",
+  "totalPhases": 9,
+  "created_at": "2026-05-12T15:00:00+09:00",
+  "phases": [
+    {
+      "phase": 0,
+      "name": "setup-and-tooling",
+      "status": "pending"
+    },
+    {
+      "phase": 1,
+      "name": "tokens-and-layout",
+      "status": "pending"
+    },
+    {
+      "phase": 2,
+      "name": "home-static-shell",
+      "status": "pending"
+    },
+    {
+      "phase": 3,
+      "name": "collections-and-types",
+      "status": "pending"
+    },
+    {
+      "phase": 4,
+      "name": "progress-track",
+      "status": "pending"
+    },
+    {
+      "phase": 5,
+      "name": "notes-track",
+      "status": "pending"
+    },
+    {
+      "phase": 6,
+      "name": "edge-and-meta",
+      "status": "pending"
+    },
+    {
+      "phase": 7,
+      "name": "analytics-and-perf",
+      "status": "pending"
+    },
+    {
+      "phase": 8,
+      "name": "deploy-and-domain",
+      "status": "pending"
+    }
+  ]
+}
