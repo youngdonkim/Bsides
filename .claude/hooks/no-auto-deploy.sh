@@ -6,6 +6,8 @@
 # 차단 대상:
 #   - vercel --prod / vercel deploy --prod / vercel deploy / vercel --target production
 #   - git push to main (PR 워크플로 우회 차단)
+#       - 명령어에 main이 명시된 경우 (예: git push origin main)
+#       - 현재 브랜치가 main인 상태의 모든 git push (gap 봉쇄)
 #
 # 정밀화: shell separator(&&, ||, ;, | , &)로 sub-command 분리 후
 # 각 sub-command의 첫 토큰이 vercel/git일 때만 검사.
@@ -40,9 +42,18 @@ while IFS= read -r sub; do
       fi
       ;;
     git)
+      # main 명시 패턴
       if printf '%s' "$sub_trimmed" | grep -qE 'git +push( +[^ ]+)* +(origin +)?main([: ]|$)|git +push( +[^ ]+)* +main:main'; then
         block_reason="main-push"
         break
+      fi
+      # 현재 브랜치가 main인 상태의 모든 git push 차단 (gap 봉쇄)
+      if printf '%s' "$sub_trimmed" | grep -qE '^git +push( |$)'; then
+        current_branch=$(git -C "${CLAUDE_PROJECT_DIR:-.}" rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
+        if [ "$current_branch" = "main" ]; then
+          block_reason="main-push"
+          break
+        fi
       fi
       ;;
   esac
