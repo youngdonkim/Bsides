@@ -15,8 +15,6 @@ jobs:
   typecheck:
     name: Type check (astro check)
     runs-on: ubuntu-latest
-    # Astro init 전엔 package.json 없음 — skip 조건
-    if: hashFiles('package.json') != ''
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -29,7 +27,6 @@ jobs:
   build:
     name: Build (astro build)
     runs-on: ubuntu-latest
-    if: hashFiles('package.json') != ''
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
