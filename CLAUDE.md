@@ -98,8 +98,9 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 토픽별 path-scoped 룰은 `.claude/rules/` 에 분리되어 있어 (해당 파일 작업 시 자동 로드):
 - `design-system.md` — CSS 토큰, 클래스 추출, 인라인 정책, Astro Font 매칭
 - `content-collections.md` — Markdown collections, Zod schema, frontmatter
-- `deploy.md` — Vercel·GitHub·PR 머지·CI 워크플로
+- `deploy.md` — Vercel·GitHub·PR 머지·CI 워크플로 + Claude Code 훅 2종(no-auto-deploy·auto-wip-commit)
 - `perf-astro.md` — Astro 5 perf baseline (Image·Font·Critical CSS)
+- `claude-config-authoring.md` — CLAUDE.md·rules·skills 작성 표준 (Anthropic context engineering 흡수)
 
 ## 코딩 컨벤션
 
@@ -126,4 +127,4 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - 비결정성 의존 (타임존·시스템 시간·무작위 시드)
 - sudo·root·OS 권한·파일시스템 외부 접근
 - 외부 인프라 변경 (도메인·DNS·Vercel·GitHub secrets)
-- **배포(`vercel --prod`·`vercel deploy`)** — 사용자 명시 지시 시에만. PreToolUse hook이 차단함. 자세히는 `.claude/rules/deploy.md`.
+- **Claude Code 훅 변경 (`.claude/hooks/**`·`.claude/settings.json`)** — 자동 배포 차단·자동 WIP 커밋 동작에 영향. 현재 훅 2종(no-auto-deploy + auto-wip-commit) 상세는 `.claude/rules/deploy.md` §Claude Code 훅 2종.
