@@ -40,3 +40,4 @@
 - 비결정성 의존 (타임존·시스템 시간·무작위 시드)
 - sudo·root·OS 권한·파일시스템 외부 접근
 - 외부 인프라 변경 (도메인·DNS·Vercel·GitHub secrets)
+- **배포(`vercel --prod`·`vercel deploy`)** — 사용자 명시 지시 시에만. PreToolUse hook이 차단함. 자세히는 `.claude/rules/deploy.md`.
