@@ -12,6 +12,13 @@ paths:
 
 # Deploy & branch workflow
 
+## 자동 배포 금지
+
+- **코드 수정 후 자동 deploy 금지**. 모든 배포는 사용자 명시 지시(예: "배포해", "deploy해") 후에만 진행.
+- main 머지 시 Vercel GitHub integration이 자동 production deploy 트리거 — 즉 PR 머지 자체가 사용자의 명시적 배포 의사로 간주. 따라서 별도 `vercel --prod` CLI 호출은 대개 불필요.
+- enforcement: `.claude/hooks/no-auto-deploy.sh` 가 `vercel --prod`·`vercel deploy`·`git push ... main` 명령을 PreToolUse(Bash) 단계에서 차단 (exit 2).
+- 통과시키려면 운영자가 직접 터미널에서 실행하거나, 사용자가 명시 요청 후 hook을 임시 우회.
+
 ## 인프라
 
 - Vercel 무료 (Hobby) 티어, 기본 도메인 사용. 커스텀 도메인 없음.
