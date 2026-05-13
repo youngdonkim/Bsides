@@ -40,9 +40,13 @@ paths:
   - `content/<topic>` · 콘텐츠/카피 변경 (`src/content/**`)
   - `docs/<topic>` · `docs/` 폴더 아래 사람이 읽는 문서 추가·수정
 - PR title: conventional commits 패턴 (`feat:`·`fix:`·`chore:`·`refactor:`·`content:`·`docs:`).
-- **PR 직전 wip 커밋 흡수**: `auto-wip-commit.sh` 가 누적해놓은 `wip:` 커밋들은 push 전 의미 단위 commit으로 흡수. `git reset --soft origin/main` + 재커밋 패턴. 머지 방식이 merge commit이라 wip이 main history에 남으면 노이즈.
-- CI 통과 후 머지. 머지 방식은 **merge commit** (history 보존).
-- 머지 후 `--delete-branch` 로 원격 브랜치 정리. local도 `git branch -d`.
+- **PR 직전 wip 커밋 흡수**: `auto-wip-commit.sh` 가 누적해놓은 `wip:` 커밋들은 push 전 의미 단위 commit으로 흡수. `git reset --soft origin/main` + 재커밋 패턴.
+- CI 통과 후 머지. 머지 방식은 **Squash and merge** — PR의 모든 commit을 단일 commit으로 합쳐 main에 추가.
+  - **이유**: main history 선형·간결 (PR 단위 1 commit). 우리는 PR 직전 wip 흡수 정책으로 이미 의미 단위 commit으로 정리하므로, squash가 자연스러운 다음 단계.
+  - **트레이드오프**: feature branch의 개별 commit 보존 X (PR description에 남김). 필요 시 PR description에 commit 메시지·근거 상세 기록.
+  - GitHub repo Settings → Pull Requests → "Squash and merge" 활성, 다른 옵션 비활성 권장.
+- 머지 후 GitHub UI가 자동 remote 브랜치 삭제 (또는 `gh pr merge --squash --delete-branch`).
+- **local 브랜치 삭제는 force 필요**: squash는 feature tip을 main의 ancestor로 만들지 않음 → `git branch -d` 거부됨. `git branch -D <name>` 로 강제 삭제. PR 머지 확인 후 안전.
 
 ## CI
 

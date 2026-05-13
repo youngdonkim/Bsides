@@ -54,17 +54,34 @@ git pull origin main
 
 ### 3. 옛 브랜치 정리
 
-```bash
-# local 머지된 브랜치 감지
-git branch --merged main | grep -v '^\*\|main' | tr -d ' '
+**중요**: Bsides는 **squash merge** 정책(`.claude/rules/deploy.md`). squash는 feature tip을 main의 ancestor로 만들지 않음 → `git branch --merged` 가 못 감지. 따라서 **PR 머지 상태로 판단**.
 
-# remote에서 사라진 브랜치 (gone) prune
+```bash
+# remote에서 사라진 브랜치 prune
 git remote prune origin
+
+# local feature 브랜치 list
+git branch --format='%(refname:short)' | grep -v '^main$'
 ```
 
-- 머지된 local 브랜치 list 사용자에게 보여주고 일괄 삭제 확인 받기.
-- `git branch -d <name>` (안전 삭제, 아직 머지 안 된 건 거부됨).
-- remote에 남아있지만 PR 머지된 브랜치 있으면 `git push origin --delete <branch>` 도 제안 (사용자 확인 필요).
+각 local feature 브랜치에 대해:
+
+```bash
+# 그 브랜치의 PR 상태 조회
+gh pr list --head <branch> --state merged --json number,state,url --limit 1
+```
+
+- 응답에 머지된 PR 있으면 → **삭제 대상**
+- 사용자한테 보여주고 일괄 삭제 확인 받기 (브랜치별 PR 번호·URL 함께 표시).
+- 확인 OK → `git branch -D <name>` (squash는 force delete 필수).
+- remote에 같은 브랜치 남아있으면 `git push origin --delete <name>` 추가 제안.
+
+**미머지 PR 있는 브랜치**:
+- 보존 (사용자가 추후 머지 가능성).
+- 명시적으로 사용자가 "버려도 돼" 했을 때만 force delete.
+
+**PR 없는 local 브랜치** (예: 로컬에서만 만든 실험 브랜치):
+- 자동 삭제 X — 사용자한테 따로 확인.
 
 ### 4. 새 브랜치 자동 생성
 
