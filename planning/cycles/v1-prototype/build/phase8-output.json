@@ -1,0 +1,90 @@
+{
+  "phase": 8,
+  "name": "deploy-and-domain",
+  "mode": "interactive",
+  "note": "이 phase는 운영자 수동 단계(Vercel 인증·도메인 결정)가 핵심이라 run-phases.py sub-agent 자동 실행 대신 사용자와 직접 대화 모드로 진행. 따라서 표준 transcript dump 형식 대신 manual summary.",
+  "started_at": "2026-05-12T21:33:12+0900",
+  "completed_at": "2026-05-12T21:54:37+0900",
+  "environment": {
+    "vercel_cli_version": "53.4.0",
+    "vercel_cli_path": "/Users/youngdonkim/.npm-global/bin/vercel",
+    "node_default": "24.x",
+    "vercel_account": "youngdonkim",
+    "team_slug": "youngdonkims-projects",
+    "project_id": "prj_lwbVDftUubeNLDzJy8ACR1kJBU44",
+    "project_name": "bsides"
+  },
+  "decisions": [
+    {
+      "topic": "도메인",
+      "original_plan": "bsides.kr custom domain 연결 + DNS 전환",
+      "actual": "Vercel 무료(Hobby) 티어 + Vercel 기본 도메인 사용",
+      "reason": "사용자가 bsides.kr 도메인을 구매하지 않았음. v1-prototype 단계에선 무료 티어 + 자동 발급 URL로 충분"
+    },
+    {
+      "topic": "공개 production URL",
+      "value": "https://bsides-one.vercel.app/",
+      "reason": "Hobby plan 자동 생성 URL(bsides-youngdonkims-projects.vercel.app 등)은 deployment protection 기본 ON으로 401. 사용자가 명시적으로 추가한 alias는 보호 적용 안 됨"
+    },
+    {
+      "topic": "bsides.kr alias 처리",
+      "action": "vercel domains rm bsides.kr (사용자 미소유 도메인)",
+      "reason": "Vercel에 6분 전 자동 등록되어 있었으나 미구매 도메인이라 DNS 응답 안 되고 Latest Production URL이 죽은 상태로 잡혔음. 제거 필요"
+    }
+  ],
+  "production_deploy": {
+    "deployment_id": "dpl_CTDLbbBhnkScjB29Md2h4nsnqWqG",
+    "deployment_url": "https://bsides-8oz0wp1e8-youngdonkims-projects.vercel.app",
+    "inspector_url": "https://vercel.com/youngdonkims-projects/bsides/CTDLbbBhnkScjB29Md2h4nsnqWqG",
+    "ready_state": "READY",
+    "target": "production",
+    "build_duration_seconds": 17,
+    "build_log_excerpt": [
+      "[content] Synced content",
+      "[types] Generated 629ms",
+      "[build] output: static, adapter: @astrojs/vercel",
+      "[assets] Copying fonts (271 files)..."
+    ]
+  },
+  "public_aliases": [
+    {
+      "url": "https://bsides-one.vercel.app/",
+      "status": "public",
+      "http": 200,
+      "primary": true
+    },
+    {
+      "url": "https://bsides-youngdonkims-projects.vercel.app/",
+      "status": "protected",
+      "http": 401,
+      "note": "Hobby plan deployment protection 기본 ON"
+    },
+    {
+      "url": "https://bsides-youngdonkim-youngdonkims-projects.vercel.app/",
+      "status": "protected",
+      "http": 401
+    }
+  ],
+  "acceptance_criteria": {
+    "tested_against": "https://bsides-one.vercel.app",
+    "results": [
+      { "check": "/", "expected": 200, "actual": 200, "pass": true },
+      { "check": "/notes/01-intent", "expected": 200, "actual": 200, "pass": true },
+      { "check": "/progress", "expected": 200, "actual": 200, "pass": true },
+      { "check": "/progress/round-3-mimirog-launch", "expected": 200, "actual": 200, "pass": true },
+      { "check": "/notfound-test (404 fallback)", "expected": 404, "actual": 404, "pass": true },
+      { "check": "HSTS header", "expected": "strict-transport-security present", "actual": "max-age=63072000; includeSubDomains; preload", "pass": true }
+    ],
+    "all_passed": true
+  },
+  "manual_followups_for_operator": [
+    "Vercel 대시보드에서 Vercel Web Analytics 데이터 수집 확인 (배포 후 10~30분)",
+    "production URL prod 환경에서 Lighthouse/PageSpeed Insights 재측정 — phase 7 needs_review 후속(LCP)",
+    "선택: Settings → Deployment Protection을 끄면 bsides-youngdonkims-projects.vercel.app도 공개로 전환 가능 (현재는 bsides-one.vercel.app만 공개)",
+    "main 브랜치로 merge → 자동 production 배포 파이프라인 검증 (현재는 feat-v1-prototype 브랜치에서 CLI deploy)"
+  ],
+  "needs_review": {
+    "triggers": ["external_infra_first_connection"],
+    "summary": "phase8.md 명시 트리거(외부 인프라 첫 연결: Vercel 계정·도메인). 비가역적은 아니지만 운영 전환 시점이라 사용자 승인 게이트."
+  }
+}

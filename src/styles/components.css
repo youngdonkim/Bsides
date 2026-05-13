@@ -1,0 +1,102 @@
+/* ============================================================
+   Bsides Components & Layout — Extracted from Claude Design output
+   Depends on: brand.css (design tokens · CSS variables)
+   ============================================================ */
+
+html, body { font-family: var(--b-font-sans); background: var(--b-paper); color: var(--b-ink); font-feature-settings: "ss01", "ss02"; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; }
+body::before { content: ""; position: fixed; inset: 0px; pointer-events: none; z-index: 0; background-image: radial-gradient(circle at 25% 30%, rgba(80, 65, 40, 0.02) 0px, transparent 1.2px), radial-gradient(circle at 75% 70%, rgba(80, 65, 40, 0.024) 0px, transparent 1.4px); background-size: 4px 4px, 7px 7px; opacity: 0.9; mix-blend-mode: multiply; }
+#root { position: relative; z-index: 1; }
+.b-hand-underline { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12'><path d='M2 8 C 40 2, 80 12, 120 6 S 180 4, 198 7' stroke='%235d6b2c' stroke-width='2.6' fill='none' stroke-linecap='round'/></svg>"); background-repeat: no-repeat; background-position: 0px 100%; background-size: 100% 0.32em; padding-bottom: 0.18em; }
+:focus-visible { outline: 2px solid var(--b-olive); outline-offset: 3px; border-radius: 4px; }
+a { color: inherit; text-decoration: none; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); }
+.t-display { font-size: clamp(40px, 6vw, 64px); line-height: 1.12; letter-spacing: -0.025em; font-weight: 700; color: var(--b-ink); }
+.t-title-1 { font-size: clamp(26px, 3.2vw, 34px); line-height: 1.25; letter-spacing: -0.02em; font-weight: 700; }
+.t-title-2 { font-size: 22px; line-height: 1.35; letter-spacing: -0.015em; font-weight: 700; }
+.t-title-3 { font-size: 18px; line-height: 1.4; letter-spacing: -0.01em; font-weight: 600; }
+.t-body { font-size: 16px; line-height: 1.65; letter-spacing: 0.004em; font-weight: 400; color: var(--b-ink-soft); }
+.t-body-strong { font-size: 16px; line-height: 1.6; font-weight: 500; color: var(--b-ink); }
+.t-label { font-size: 14px; line-height: 1.5; letter-spacing: 0.012em; font-weight: 500; color: var(--b-ink-soft); }
+.t-caption { font-size: 12.5px; line-height: 1.4; letter-spacing: 0.02em; font-weight: 500; color: var(--b-ink-faint); }
+.t-hand { font-family: var(--b-font-hand); font-weight: 400; }
+.b-container { max-width: 1080px; margin: 0px auto; padding: 0px 24px; }
+@media (min-width: 1280px) {
+  .b-container { max-width: 1120px; }
+}
+button { font: inherit; color: inherit; background: none; border: 0px; padding: 0px; cursor: pointer; }
+.b-hero-grid { display: grid; grid-template-columns: minmax(0px, 1fr) auto; gap: 48px; align-items: center; }
+.b-hero-cluster { position: relative; width: 280px; height: 320px; }
+.b-mentor-grid { display: grid; grid-template-columns: minmax(0px, 1.4fr) minmax(0px, 1fr); min-height: 280px; }
+.b-mentor-image { border-left: 1px solid var(--b-line); }
+.b-cta-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.b-relay-callout { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+.b-detail-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 900px) {
+  .b-hero-grid { grid-template-columns: minmax(0px, 1fr); gap: 32px; }
+  .b-hero-cluster { display: none; }
+  .b-mentor-grid { grid-template-columns: minmax(0px, 1fr); min-height: 0px; }
+  .b-mentor-image { border-left-width: medium; border-left-style: none; border-left-color: currentcolor; border-top: 1px solid var(--b-line); }
+}
+@media (max-width: 720px) {
+  .b-container { padding: 0px 20px; }
+  .t-display { font-size: clamp(34px, 8vw, 44px); line-height: 1.16; }
+  .t-title-1 { font-size: clamp(22px, 5.4vw, 28px); }
+  .t-title-2 { font-size: 19px; }
+  .b-cta-row { gap: 10px; }
+  .b-cta-row > a { width: 100%; justify-content: center; }
+  .b-persona-strip { font-size: 13.5px !important; gap: 8px !important; }
+  .b-persona-strip > span[style*="height: 18px"] { display: none; }
+  .b-relay-callout { flex-direction: column; align-items: flex-start !important; gap: 12px !important; }
+  .b-detail-nav { grid-template-columns: 1fr; }
+  section .b-container > div h2 + div { max-width: 100% !important; }
+}
+@media (max-width: 420px) {
+  .b-container { padding: 0px 16px; }
+  .t-display { font-size: clamp(28px, 9vw, 36px); }
+}
+@media (hover: none) {
+  :hover { transform: none !important; }
+}
+
+@keyframes b-pulse {
+  0%, 100% { box-shadow: rgba(196, 90, 58, 0.5) 0px 0px 0px 0px; }
+  50% { box-shadow: rgba(196, 90, 58, 0) 0px 0px 0px 6px; }
+}
+
+/* ---- Sticky note ---- */
+.b-sticky-note { padding: 16px 18px 18px; border-radius: var(--b-r-note); box-shadow: var(--b-shadow-note); font-family: var(--b-font-hand); font-size: 22px; line-height: 1.25; color: var(--b-ink); }
+.b-sticky-note--sm { font-size: 18px; padding: 14px 16px 16px; }
+.b-sticky-note--md { font-size: 19px; }
+.b-sticky-note--yellow { background: var(--b-note-yellow); }
+.b-sticky-note--mint { background: var(--b-note-mint); }
+.b-sticky-note--pink { background: var(--b-note-pink); }
+
+/* ---- Buttons ---- */
+.b-btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; background: var(--b-olive); color: var(--b-on-olive); border-radius: var(--b-r-14); font-size: 15.5px; font-weight: 600; box-shadow: var(--b-shadow-cta); transition: 200ms; }
+.b-btn-primary--lg { padding: 16px 28px; gap: 10px; font-size: 16px; box-shadow: var(--b-shadow-cta-lg); white-space: nowrap; }
+.b-btn-primary--sm { padding: 11px 20px; gap: 8px; font-size: 14.5px; border-radius: var(--b-r-12); box-shadow: none; }
+.b-btn-primary--md { padding: 12px 22px; gap: 8px; font-size: 14.5px; border-radius: var(--b-r-12); box-shadow: none; white-space: nowrap; }
+.b-btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; background: transparent; color: var(--b-olive-deep); border: 1.5px solid var(--b-olive); border-radius: var(--b-r-14); font-size: 15px; font-weight: 600; transition: 200ms; }
+.b-btn-pill { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; background: var(--b-olive); color: var(--b-on-olive); border-radius: var(--b-r-pill); font-size: 14px; font-weight: 600; letter-spacing: 0.01px; white-space: nowrap; }
+
+/* ---- Image cover ---- */
+.b-cover-shade { position: absolute; inset: 0; background-image: var(--b-cover-inner-shade); pointer-events: none; }
+.b-cover-caption { position: absolute; left: 14px; bottom: 12px; font-family: var(--b-font-hand); font-size: 18px; color: var(--b-ink-hand-faint); }
+
+/* ---- Hand-style caption ---- */
+.t-hand-caption { font-family: var(--b-font-hand); font-size: 18px; color: var(--b-ink-hand-faint); }
+
+/* ---- Header glass ---- */
+.b-header-glass { position: sticky; top: 0; z-index: 50; background: var(--b-paper-glass); backdrop-filter: blur(8px); border-bottom: 1px solid var(--b-line); }
+
+/* ---- Pill badge ---- */
+.b-badge-round { padding: 4px 12px; background: var(--b-olive-soft); color: var(--b-olive-deep); border-radius: var(--b-r-pill); font-size: 12.5px; font-weight: 600; }
+
+/* ---- Live pulse dot ---- */
+.b-live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--b-live); box-shadow: var(--b-shadow-pulse); animation: 2s ease-in-out 0s infinite normal none running b-pulse; }
+
+/* ---- Note card (markdown "한 스푼 메모") ---- */
+.b-note-card { margin: 12px 0; padding: 20px 22px; background: var(--b-note-mint); border-radius: var(--b-r-12); transform: rotate(-1deg); box-shadow: var(--b-shadow-note); }
+.b-note-card-title { font-family: var(--b-font-hand); font-size: 22px; color: var(--b-ink); margin-bottom: 6px; }
+.b-note-card-body { font-family: var(--b-font-sans); font-size: 14.5px; line-height: 1.55; color: var(--b-ink); }

@@ -15,13 +15,11 @@ jobs:
   typecheck:
     name: Type check (astro check)
     runs-on: ubuntu-latest
-    # Astro init 전엔 package.json 없음 — skip 조건
-    if: hashFiles('package.json') != ''
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
       - run: npm ci
       - run: npm run typecheck
@@ -29,12 +27,11 @@ jobs:
   build:
     name: Build (astro build)
     runs-on: ubuntu-latest
-    if: hashFiles('package.json') != ''
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
       - run: npm ci
       - run: npm run build

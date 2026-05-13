@@ -1,0 +1,65 @@
+---
+const steps = [
+  {
+    n: 1,
+    tag: 'Intro',
+    title: '소개',
+    body: '이번 사이클 주인공 멤버와 그가 만들 서비스를 소개. 객원 멤버는 합류하고 운영자·멤버와 인사.',
+  },
+  {
+    n: 2,
+    tag: 'Workshop',
+    title: '수업',
+    body: '운영자가 아이템·기획·개발·디자인·출시·홍보를 단계별 학습 자료 및 코칭 제공(텍스트·이미지·영상·링크). 정식 멤버는 자기 프로젝트로 따라 만들고, 객원은 자기 분야에서 거든다.',
+  },
+  {
+    n: 3,
+    tag: 'Launch',
+    title: '출시',
+    body: '사이클 끝에 멤버의 서비스를 실제로 출시. 객원 멤버는 디자인·개발·마케팅에서 도울 수 있다면 거든다.',
+  },
+  {
+    n: 4,
+    tag: 'Relay',
+    title: '릴레이',
+    body: '다음 사이클은 다른 멤버의 프로젝트로. 이번 사이클 객원 멤버 중 한 명이 다음 프로젝트의 주인공이 될 수도.',
+  },
+];
+---
+<section style="padding: 64px 0px 56px;">
+  <div class="b-container">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 28px; flex-wrap: wrap;">
+      <div>
+        <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.08px; color: var(--b-olive); text-transform: uppercase; margin-bottom: 8px;">How it works</div>
+        <h2 class="t-title-1" style="color: var(--b-ink);">운영방식 — 한 사이클, 한 멤버, 서비스 출시</h2>
+        <div class="t-body" style="margin-top: 8px; max-width: 560px;">운영자가 단계별 학습자료로 안내 및 코칭제공하고, 정식 멤버가 그 사이클의 주인공이 되어 자기 프로젝트를 출시한다. 객원 멤버는 자기 분야에서 거든다.</div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; align-items: stretch; position: relative;">
+      {steps.map((s) => (
+        <div style="background: var(--b-card); border: 1px solid var(--b-line); border-radius: var(--b-r-20); padding: 24px 22px 26px; box-shadow: var(--b-shadow-1); transform: none; transition: 200ms cubic-bezier(0.2, 0, 0, 1); cursor: default; display: flex; flex-direction: column; gap: 12px; min-height: 168px;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="width: 34px; height: 34px; border-radius: 50%; background: var(--b-olive-soft); color: var(--b-olive-deep); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--b-font-hand); font-size: 20px;">{s.n}</div>
+            <span class="t-caption" style="color: var(--b-olive);">{s.tag}</span>
+          </div>
+          <div class="t-title-2" style="color: var(--b-ink);">{s.title}</div>
+          <div class="t-body" style="font-size: 14px; line-height: 1.55;">{s.body}</div>
+        </div>
+      ))}
+    </div>
+    <div style="margin-top: 12px; display: flex; justify-content: space-around; color: var(--b-olive); opacity: 0.55; font-family: var(--b-font-hand); font-size: 18px; padding: 0px 4%;"></div>
+    <div class="b-relay-callout" style="margin-top: 32px; padding: 22px 26px; border: 1px dashed var(--b-line-strong); border-radius: var(--b-r-14); background: var(--b-paper-deep);">
+      <span style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-olive); white-space: nowrap;">객원 → 정식 멤버</span>
+      <span style="display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 14.5px; color: var(--b-ink-soft); line-height: 1.6;">
+        <span style="color: var(--b-ink); font-weight: 500;">객원 멤버로 한 사이클 참여</span>
+        <span style="color: var(--b-olive); font-family: var(--b-font-hand); font-size: 18px;">→</span>
+        <span style="color: var(--b-ink); font-weight: 500;">운영자·멤버 심사</span>
+        <span style="color: var(--b-olive); font-family: var(--b-font-hand); font-size: 18px;">→</span>
+        <span style="color: var(--b-ink); font-weight: 500;">약관 동의</span>
+        <span style="color: var(--b-olive); font-family: var(--b-font-hand); font-size: 18px;">→</span>
+        <span style="color: var(--b-olive-deep); font-weight: 600;">정식 멤버</span>
+      </span>
+      <span class="t-caption" style="color: var(--b-ink-faint); flex-basis: 100%; margin-top: 2px;">정식 멤버가 되면 다음 사이클의 주인공이 될 수 있어요. 객원 참여 없이 바로 정식 합류는 없어요.</span>
+    </div>
+  </div>
+</section>

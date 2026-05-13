@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NoteDetail from '../../components/notes/NoteDetail.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { getNoteSiblings } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes', ({ data }) => data.published);
+  return notes.map((note) => ({ params: { slug: note.id }, props: { note } }));
+}
+
+interface Props {
+  note: CollectionEntry<'notes'>;
+}
+
+const { note } = Astro.props;
+const { prev, next } = await getNoteSiblings(note.data.num);
+---
+<BaseLayout
+  title={`${note.data.num} ${note.data.en} · ${note.data.ko} — Bsides Notes`}
+  description={note.data.lead}
+  ogTitle={`${note.data.num} ${note.data.en} · ${note.data.ko}`}
+  ogDescription={note.data.lead}
+  currentPage="notes"
+  currentStep={note.data.num}
+>
+  <NoteDetail note={note} prev={prev} next={next} />
+</BaseLayout>

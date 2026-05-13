@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NoteGroup from '../../components/notes/NoteGroup.astro';
+import NoteRow from '../../components/notes/NoteRow.astro';
+import { getSortedNotes } from '../../lib/content';
+import { NOTE_GROUPS, type NoteGroupKey } from '../../data/note-groups';
+
+const notes = await getSortedNotes();
+const byGroup: Record<NoteGroupKey, typeof notes> = {
+  'discover-plan': notes.filter((n) => n.data.group === 'discover-plan'),
+  'design-architect': notes.filter((n) => n.data.group === 'design-architect'),
+  'build-ship': notes.filter((n) => n.data.group === 'build-ship'),
+};
+const groupKeys = Object.keys(NOTE_GROUPS) as NoteGroupKey[];
+---
+<BaseLayout
+  title="Notes — Bsides"
+  description="Bsides에서 같이 가는 한 사이클의 13단계 노트. 운영자가 워크샵에서 추리고 또 추린 정수."
+  ogTitle="Notes — 학습 노트"
+  ogDescription="프로토타입까지, 13단계 노트. 워크샵 없이도 읽어볼 수 있어요."
+  currentPage="notes"
+>
+  <main data-screen-label="Notes · 목차">
+    <section style="padding-top: 56px; padding-bottom: 24px;">
+      <div class="b-container" style="max-width: 760px;">
+        <div style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 500; letter-spacing: 0.04px; color: var(--b-olive); margin-bottom: 24px;">
+          <span style="width: 24px; height: 1px; background: var(--b-olive);"></span>Notes · 학습 노트
+        </div>
+        <h1 class="t-display" style="font-size: clamp(36px, 5vw, 52px); margin-bottom: 20px; line-height: 1.15;">
+          프로토타입까지,<br />
+          <span style="font-family: var(--b-font-hand-gaegu), var(--b-font-hand-nps), cursive; font-weight: 700; color: var(--b-olive); font-size: 1.15em;">13단계 노트.</span>
+        </h1>
+        <p class="t-body" style="font-size: 17px; line-height: 1.65; max-width: 580px; color: var(--b-ink-soft); margin: 0;">Bsides에서 같이 가는 한 사이클의 13단계. 워크샵 없이도 읽어볼 수 있게 운영자가 추려둔 노트예요. 순서대로 가도 좋고, 필요한 데만 골라봐도 OK. 출시·홍보는 워크샵에서 따로 다뤄요.</p>
+      </div>
+    </section>
+
+    {groupKeys.map((key) => (
+      <NoteGroup groupKey={key}>
+        {byGroup[key].map((note) => <NoteRow note={note} />)}
+      </NoteGroup>
+    ))}
+
+    <section style="padding: 48px 0px 80px;">
+      <div class="b-container">
+        <div style="background: var(--b-paper-warm); border: 1px dashed var(--b-line-strong); border-radius: var(--b-r-20); padding: 32px; display: flex; gap: 24px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+          <div style="max-width: 460px;">
+            <div class="t-title-3" style="margin-bottom: 6px;">노트만으로는 부족하다면?</div>
+            <div class="t-body" style="font-size: 14.5px; color: var(--b-ink-soft);">워크샵에선 운영자와 멤버가 같이 손잡고 한 사이클을 통과해요. 노트는 그 정수만 추린 거예요.</div>
+          </div>
+          <a class="b-btn-primary b-btn-primary--md" href="/#apply">객원 멤버 신청 <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="페이지를 찾을 수 없어요 — Bsides"
+  description="요청하신 페이지를 찾을 수 없어요."
+  ogDescription="길을 잃었어요. 메인으로 돌아가서 다시 시작해보세요."
+>
+  <main class="b-container" style="padding: 80px 24px; text-align: center; max-width: 640px;">
+    <img
+      src="/assets/spooni/rest.svg"
+      alt="Bsides 마스코트 스푼이 — 자고 있어요"
+      width="160"
+      height="140"
+      loading="lazy"
+      style="display:block; margin: 0 auto 24px; transform: rotate(-4deg);"
+    />
+    <h1 class="t-title-1" style="margin-bottom: 12px;">길을 잃었어요</h1>
+    <p class="t-body" style="font-size: 17px; margin-bottom: 8px;">스푼이가 자고 있는 사이 페이지가 사라졌나봐요.</p>
+    <p class="t-caption" style="margin-bottom: 28px;">URL이 바뀌었거나, 아직 만들어지지 않은 페이지일 수 있어요.</p>
+    <a class="b-btn-primary b-btn-primary--md" href="/">
+      메인으로 돌아가기 <span aria-hidden="true">→</span>
+    </a>
+  </main>
+</BaseLayout>

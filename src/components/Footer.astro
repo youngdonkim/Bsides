@@ -1,0 +1,17 @@
+---
+import { OPERATOR } from '../data/operator';
+---
+<footer style="margin-top: 96px; border-top: 1px solid var(--b-line); background: var(--b-paper-deep);">
+  <div class="b-container" style="padding: 40px 24px 56px; display: flex; flex-direction: column; gap: 20px;">
+    <span style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--b-ink); display: inline-flex; align-items: baseline; gap: 4px;">Bsides<span style="width: 6px; height: 6px; border-radius: 50%; background: var(--b-olive); display: inline-block; margin-bottom: 2px;"></span></span>
+    <div class="t-body" style="color: var(--b-ink-soft); max-width: 540px;">{OPERATOR.brandTagline}</div>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: var(--b-ink-soft);">
+      <span>운영 · {OPERATOR.name}</span>
+      <span>·</span>
+      <a href={OPERATOR.kakaoOpen} target="_blank" rel="noopener noreferrer" style="border-bottom: 1px solid var(--b-ink-mute); padding-bottom: 1px;">카톡 {OPERATOR.kakaoHandle}</a>
+      <span>·</span>
+      <a href={`mailto:${OPERATOR.email}`} style="border-bottom: 1px solid var(--b-ink-mute); padding-bottom: 1px;">{OPERATOR.email}</a>
+    </div>
+    <div class="t-caption" style="margin-top: 8px;">© 2026 Bsides</div>
+  </div>
+</footer>

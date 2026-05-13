@@ -1,0 +1,19 @@
+---
+import type { NoteGroupKey } from '../../data/note-groups';
+import { NOTE_GROUPS } from '../../data/note-groups';
+interface Props { groupKey: NoteGroupKey; }
+const { groupKey } = Astro.props;
+const g = NOTE_GROUPS[groupKey];
+---
+<section style="padding: 32px 0px;">
+  <div class="b-container">
+    <div style="margin-bottom: 18px;">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.08px; color: var(--b-olive); text-transform: uppercase; margin-bottom: 6px;">{g.en}</div>
+      <h2 class="t-title-2" style="color: var(--b-ink); margin-bottom: 6px;">{g.ko}</h2>
+      <div class="t-body" style="font-size: 14.5px; color: var(--b-ink-soft); max-width: 560px;">{g.lead}</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <slot />
+    </div>
+  </div>
+</section>

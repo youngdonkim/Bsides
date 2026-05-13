@@ -1,0 +1,87 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'progress'>;
+  prev: CollectionEntry<'progress'> | null;
+  next: CollectionEntry<'progress'> | null;
+}
+
+const { post, prev, next } = Astro.props;
+const { Content } = await render(post);
+
+const gradients = {
+  olive: 'linear-gradient(135deg, rgb(205, 208, 166) 0%, rgb(185, 192, 148) 100%)',
+  sand: 'linear-gradient(135deg, rgb(232, 220, 184) 0%, rgb(216, 200, 149) 100%)',
+  pink: 'linear-gradient(135deg, rgb(239, 201, 184) 0%, rgb(227, 176, 154) 100%)',
+} as const;
+
+const gradKey = post.data.cover?.gradient ?? 'olive';
+const heroGrad = gradients[gradKey];
+const dateStr = post.data.date.toISOString().slice(0, 10);
+---
+<main data-screen-label={`03 Detail · ${post.id}`}>
+  <div class="b-container" style="padding-top: 40px; padding-bottom: 24px; max-width: 760px;">
+    <a href="/progress" class="t-caption" style="color: var(--b-ink-soft); display: inline-block; margin-bottom: 28px;">← 진행상황</a>
+    <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 16px; flex-wrap: wrap;">
+      <span class="b-badge-round">{post.data.round}회차</span>
+      <span class="t-caption" style="white-space: nowrap;">{dateStr}</span>
+      <span style="color: var(--b-ink-faint);">·</span>
+      <span class="t-caption" style="white-space: nowrap;">멤버 {post.data.member}</span>
+    </div>
+    <h1 class="t-display" style="font-size: clamp(32px, 4.5vw, 44px); margin-bottom: 28px; line-height: 1.2;">{post.data.title}</h1>
+  </div>
+  <div class="b-container" style="max-width: 880px; margin-bottom: 32px;">
+    <div style="position: relative;">
+      <div style={`aspect-ratio: 16 / 9; background: ${heroGrad}; border-radius: var(--b-r-20); position: relative; overflow: hidden; transform: none;`}>
+        <div class="b-cover-shade"></div>
+        <div class="b-cover-caption">대표 이미지 · AI 생성</div>
+      </div>
+      <div class="b-sticky-note b-sticky-note--yellow b-sticky-note--md" style="transform: rotate(3deg); position: absolute; top: -14px; right: -8px; width: 150px;">여기 한 스푼<br>손으로 다듬음</div>
+    </div>
+  </div>
+  <div class="b-container" style="max-width: 720px; margin-bottom: 20px; display: flex; gap: 14px; align-items: center; opacity: 0.85;">
+    <img src="/assets/spooni/guide.svg" alt="Bsides 마스코트 스푼이 — 기록하는 포즈" width="72" height="64" loading="lazy" style="flex-shrink: 0;" />
+    <span style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-olive);">회차 노트</span>
+  </div>
+  <article class="b-container" style="max-width: 720px;">
+    <div class="t-body" style="font-size: 17px; line-height: 1.85; color: var(--b-ink); display: grid; gap: 20px;">
+      <p style="margin: 0px; font-size: 19px; color: var(--b-ink-soft); font-style: italic;">{post.data.lead}</p>
+      <Content />
+    </div>
+    <div style="margin-top: 56px; padding: 28px; background: var(--b-paper-warm); border: 1px solid var(--b-line); border-radius: var(--b-r-20); display: flex; gap: 20px; align-items: center; flex-wrap: wrap; justify-content: space-between;">
+      <div>
+        <div class="t-title-3" style="margin-bottom: 4px;">다음 회차에 참여하고 싶다면?</div>
+        <div class="t-caption">객원 멤버로 한 회 무료 참관 가능</div>
+      </div>
+      <a class="b-btn-primary b-btn-primary--md" href="/#apply">카톡으로 신청하기 →</a>
+    </div>
+    <nav class="b-detail-nav" style="margin-top: 56px; padding: 24px 0px 8px; border-top: 1px solid var(--b-line); display: grid; gap: 16px;">
+      {prev ? (
+        <div>
+          <a href={`/progress/${prev.id}`} style="display: block;">
+            <div class="t-caption" style="margin-bottom: 6px;">← 이전 회차</div>
+            <div class="t-body-strong" style="color: var(--b-ink);">{prev.data.title}</div>
+          </a>
+        </div>
+      ) : (
+        <div>
+          <div class="t-caption" style="color: var(--b-ink-faint);">이전 회차 없음</div>
+        </div>
+      )}
+      {next ? (
+        <div style="text-align: right;">
+          <a href={`/progress/${next.id}`} style="display: block;">
+            <div class="t-caption" style="margin-bottom: 6px;">다음 회차 →</div>
+            <div class="t-body-strong" style="color: var(--b-ink);">{next.data.title}</div>
+          </a>
+        </div>
+      ) : (
+        <div style="text-align: right;">
+          <div class="t-caption" style="color: var(--b-ink-faint);">다음 회차 없음</div>
+        </div>
+      )}
+    </nav>
+  </article>
+</main>
