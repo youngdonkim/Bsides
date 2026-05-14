@@ -102,6 +102,11 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - `perf-astro.md` — Astro 5 perf baseline (Image·Font·Critical CSS)
 - `claude-config-authoring.md` — CLAUDE.md·rules·skills 작성 표준 (Anthropic context engineering 흡수)
 
+사이클 단계별 스킬 (`.claude/skills/` — invoke 시 lazy load):
+- `zero-to-prototype` — prototype 단계 (13단계, 아이디어 → 배포된 prototype). 첫 사이클 또는 신규 prototype-phase 사이클.
+- `prototype-to-mvp` — MVP 단계 (15단계 = 13 + Launch + PR/Marketing + Retro 위치 변경). prototype retro 이후 PMF 검증 단계.
+- `mvp-to-production` — production 단계 (15단계, MVP와 같은 구조지만 scope가 scale·ops·multi-channel). MVP PMF 통과 후.
+
 ## 코딩 컨벤션
 
 - **TypeScript strict**. Node 22+ (Astro 5 engine).

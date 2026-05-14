@@ -1,6 +1,6 @@
 ---
-name: zero-to-prototype
-description: Run a **prototype-phase** development cycle from idea to deployed prototype. Guides through 13 stages — Intent · Brand Guide · Sketch · PRD · Design · Architecture · Build plan · Automation setup · Phase build · Integration test · Documentation · Deploy · Retrospective — with artifact-based gates between stages and per-phase status tracking during build. **Scope: prototype only.** Subsequent phases use `prototype-to-mvp` (MVP, PMF validation) and `mvp-to-production` (production, scale·ops) skills, each self-contained with its own copy of the stages. Use when starting a new project, or beginning a new prototype-phase cycle.
+name: mvp-to-production
+description: Run a **production-phase** development cycle from a PMF-validated MVP to production (scale·ops·sustainable business). Guides through 15 stages — the 13 prototype stages (Intent · Brand Guide · Sketch · PRD · Design · Architecture · Build plan · Automation setup · Phase build · Integration test · Documentation · Deploy) + Launch + PR & Marketing + Retrospective — each scoped for production: scale, monitoring·SLA, multi-channel marketing, ops procedures, cost·SLA budget. Inherits from MVP retro. **Scope: production only.** For prototype phase use `zero-to-prototype`; for MVP phase use `prototype-to-mvp`. Each skill is self-contained — content may overlap but each diverges per scope.
 ---
 
 이 스킬은 한 번 호출되면 **현재 사이클의 현재 단계**를 판별하고 해당 단계 references를 읽어 사용자와 인터랙티브하게 진행한다. 13단계를 한 번에 다 진행하지 않는다 — 단계별 호출, 또는 빌드 단계처럼 자동 실행 명시 시에만 연속 실행.
@@ -91,7 +91,9 @@ LLM은 다음을 못 본다:
 - **Cross-platform 케이스**(Flutter·RN·Tauri·Electron 등): 메인 플랫폼 + `platforms` 추가 필드(예: `[web, mobile-ios, mobile-android]`) + `cross_platform_framework` 필드. 추가 platforms가 있으면 PRD·Architecture 단계에서 각 플랫폼 분기 질문 셋을 모두 적용 — 한 코드베이스라도 각 플랫폼 UX는 native하게.
 - 이후 단계 references는 플랫폼별 분기 질문 셋을 가짐. `other`/미결정이면 범용으로 진행.
 
-## 3. 13단계 구성
+## 3. 15단계 구성
+
+MVP 사이클은 prototype의 13단계를 이어받고 **출시·홍보·마케팅을 추가**해 retro 앞에 끼움. retro는 15번으로 밀림.
 
 | # | 단계 | 산출물 (현재 사이클 폴더 기준) | references |
 |---|------|---|---|
@@ -107,7 +109,9 @@ LLM은 다음을 못 본다:
 | 10 | 통합 테스트 | `qa-report.md`, `tests/integration/` | `10-integration-test.md` |
 | 11 | 문서화 | `docs/README.md` 등 | `11-documentation.md` |
 | 12 | 배포 | `deploy-checklist.md` | `12-deploy.md` |
-| 13 | 회고 | `retro.md` | `13-retro.md` |
+| 13 | **출시 (Launch)** | `launch-checklist.md`·`first-users.md` | `13-launch.md` |
+| 14 | **홍보·마케팅** | `marketing-plan.md`·`channel-experiments.md` | `14-pr-marketing.md` |
+| 15 | 회고 | `retro.md` | `15-retro.md` |
 
 2번 Brand Guide는 UI 플랫폼에서 8개 항목 전부, 비 UI 플랫폼(cli/library/api-server)에서는 essence·voice·카피·금지 4개만 적용. Brand Guide의 §1~5·§8은 Intent만 있어도 박을 수 있고, §6·7(차별 시각 시그널·카피 패턴)은 다음 단계인 Sketch가 진행되면서 보강된다 — Sketch가 brand-guide를 input으로 받아 카피·시각 placeholder가 처음부터 정합하게 박히는 것이 이 순서의 목적. 5번 Design은 **UI 플랫폼(web/mobile/desktop) 전용**. CLI·library·api-server는 게이트 정책으로 skip — 그 경우 PRD(4번) 통과 후 바로 6번 Architecture로. 6번 Architecture는 모든 플랫폼 적용 (UI 플랫폼은 Design 코드를 진실의 원천으로 받아 스택·data-model·API 명세·마이그레이션 계획 결정).
 
