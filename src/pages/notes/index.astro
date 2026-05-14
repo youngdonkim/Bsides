@@ -27,10 +27,51 @@ const groupKeys = Object.keys(NOTE_GROUPS) as NoteGroupKey[];
           <span style="width: 24px; height: 1px; background: var(--b-olive);"></span>Notes · 학습 노트
         </div>
         <h1 class="t-display" style="font-size: clamp(36px, 5vw, 52px); margin-bottom: 20px; line-height: 1.15;">
-          프로토타입까지,<br />
-          <span style="font-family: var(--b-font-hand-gaegu), var(--b-font-hand-nps), cursive; font-weight: 700; color: var(--b-olive); font-size: 1.15em;">13단계 노트.</span>
+          프로토타입까지 가는<br />
+          <span style="font-family: var(--b-font-hand-gaegu), var(--b-font-hand-nps), cursive; font-weight: 700; color: var(--b-olive); font-size: 1.15em;">13단계.</span>
         </h1>
-        <p class="t-body" style="font-size: 17px; line-height: 1.65; max-width: 580px; color: var(--b-ink-soft); margin: 0;">Bsides에서 같이 가는 한 사이클의 13단계. 워크샵 없이도 읽어볼 수 있게 운영자가 추려둔 노트예요. 순서대로 가도 좋고, 필요한 데만 골라봐도 OK. 출시·홍보는 워크샵에서 따로 다뤄요.</p>
+        <p class="t-body" style="font-size: 17px; line-height: 1.65; max-width: 580px; color: var(--b-ink-soft); margin: 0 0 22px;">Bsides 한 사이클 = prototype까지. 두 에이전트(product-manager + 코딩)와 사람 한 스푼으로 객원·정식 멤버가 같이 굴려요. 노트만 미리 읽어도 OK.</p>
+        <a href="/#apply" style="display: inline-flex; align-items: center; gap: 6px; font-size: 14.5px; font-weight: 500; color: var(--b-olive); text-decoration: none; border-bottom: 1px solid var(--b-olive-line); padding-bottom: 2px;">객원 멤버 신청 <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section style="padding: 32px 0 28px;">
+      <div class="b-container">
+        <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.08px; color: var(--b-olive); text-transform: uppercase; margin-bottom: 8px;">Method · 방법</div>
+        <h2 class="t-title-1" style="color: var(--b-ink); margin: 0 0 24px;">두 에이전트, 사람 한 스푼.</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+          <article style="background: var(--b-card); border: 1px solid var(--b-line); border-radius: var(--b-r-20); padding: 24px; box-shadow: var(--b-shadow-1); display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+              <span style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-olive);">PM</span>
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06px; color: var(--b-olive-deep); background: var(--b-olive-soft); padding: 4px 10px; border-radius: var(--b-r-pill); text-transform: uppercase; white-space: nowrap;">정식 멤버 전용</span>
+            </div>
+            <div class="t-title-3" style="color: var(--b-ink);">product-manager agent</div>
+            <div class="t-body" style="font-size: 14.5px; line-height: 1.6; color: var(--b-ink-soft);">13단계 코칭·검토·관리. Bsides가 zero-to-prototype 스킬 기반으로 만든 전용 에이전트.</div>
+          </article>
+
+          <article style="background: var(--b-card); border: 1px solid var(--b-line); border-radius: var(--b-r-20); padding: 24px; box-shadow: var(--b-shadow-1); display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+              <span style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-olive);">Code</span>
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06px; color: var(--b-ink-soft); background: var(--b-paper-warm); padding: 4px 10px; border-radius: var(--b-r-pill); text-transform: uppercase; white-space: nowrap;">누구나 외부 도구</span>
+            </div>
+            <div class="t-title-3" style="color: var(--b-ink);">코딩 에이전트</div>
+            <div class="t-body" style="font-size: 14.5px; line-height: 1.6; color: var(--b-ink-soft);">Claude Code · Codex 등. 디자인·코드 작성 담당. 본인이 직접 구독.</div>
+          </article>
+        </div>
+
+        <p class="t-body" style="font-size: 15px; line-height: 1.65; margin: 20px 0 0; color: var(--b-ink-soft);"><span style="font-family: var(--b-font-hand); font-size: 19px; color: var(--b-olive); margin-right: 4px;">+ 사람 한 스푼.</span> 운영자·정식 멤버·객원이 단계마다 검토·코멘트·결정. AI 결과 위에 사람 결을 더해요.</p>
+
+        <div class="b-relay-callout" style="margin-top: 28px; padding: 22px 26px; border: 1px dashed var(--b-line-strong); border-radius: var(--b-r-14); background: var(--b-paper-deep);">
+          <span style="font-family: var(--b-font-hand); font-size: 22px; color: var(--b-olive); white-space: nowrap;">사이클 진행</span>
+          <span style="display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 14.5px; color: var(--b-ink-soft); line-height: 1.6;">
+            <span style="color: var(--b-ink); font-weight: 500;">prototype</span>
+            <span style="color: var(--b-ink-faint); font-size: 13px;">(이 노트 13단계 · 객원과 함께)</span>
+            <span style="color: var(--b-olive); font-family: var(--b-font-hand); font-size: 18px;">→</span>
+            <span style="color: var(--b-ink); font-weight: 500;">MVP · production</span>
+            <span style="color: var(--b-ink-faint); font-size: 13px;">(정식 멤버 · 같은 PM agent로)</span>
+          </span>
+        </div>
       </div>
     </section>
 
