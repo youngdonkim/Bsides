@@ -38,8 +38,10 @@ paths:
   - `chore/<topic>` · 잡일·CI 설정·deps
   - `refactor/<topic>` · 리팩터
   - `content/<topic>` · 콘텐츠/카피 변경 (`src/content/**`)
-  - `docs/<topic>` · `docs/` 폴더 아래 사람이 읽는 문서 추가·수정
-- PR title: conventional commits 패턴 (`feat:`·`fix:`·`chore:`·`refactor:`·`content:`·`docs:`).
+  - `docs/<topic>` · `docs/` 폴더 아래 **사용자·팀이 읽는 문서** 추가·수정 (README·가이드·튜토리얼)
+  - `harness-md/<topic>` · `.claude/**`·`CLAUDE.md` 추가·수정·삭제 (Claude harness 컨텍스트 — skills·rules·hooks·settings·CLAUDE.md 본체). LLM이 읽는 파일이라 `docs/`와 별개 category.
+- PR title: conventional commits 패턴 (`feat:`·`fix:`·`chore:`·`refactor:`·`content:`·`docs:`·`harness-md:`).
+- **docs vs harness-md 판단**: 변경 대상이 **사람이 읽는 deliverable** (사용자 가이드 등)이면 `docs:`. **Claude/LLM이 읽고 작업하는 컨텍스트** (skills·rules·CLAUDE.md)면 `harness-md:`. 둘 다 markdown이지만 독자가 다름.
 - **PR 직전 wip 커밋 흡수**: `auto-wip-commit.sh` 가 누적해놓은 `wip:` 커밋들은 push 전 의미 단위 commit으로 흡수. `git reset --soft origin/main` + 재커밋 패턴.
 - CI 통과 후 머지. 머지 방식은 **Squash and merge** — PR의 모든 commit을 단일 commit으로 합쳐 main에 추가.
   - **이유**: main history 선형·간결 (PR 단위 1 commit). 우리는 PR 직전 wip 흡수 정책으로 이미 의미 단위 commit으로 정리하므로, squash가 자연스러운 다음 단계.
