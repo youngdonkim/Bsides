@@ -129,8 +129,8 @@ planning/cycles/v{N}-{label}/build/
 
 먼저 아래 산출물을 반드시 읽고 프로젝트의 전체 설계 의도를 완전히 이해하라:
 
-- `planning/cycles/v{N}-{label}/intent.md` — 무엇·왜·누구·platform·platforms
-- `planning/cycles/v{N}-{label}/prd.md` — 이 phase에 직접 관련된 Must 기능 명세
+- `planning/cycles/v{N}-{label}/intent.md` — 무엇·왜·누구·사용 맥락
+- `planning/cycles/v{N}-{label}/prd.md` — platform·platforms + 이 phase에 직접 관련된 Must 기능 명세
 - `planning/cycles/v{N}-{label}/architecture.md` — 기술 스택·시스템 구조·API 명세
 - `planning/cycles/v{N}-{label}/data-model.md` — (DB 있으면) 엔티티·관계·스키마
 - `planning/cycles/v{N}-{label}/design/` — (UI 플랫폼이면) Claude Design 산출물·마이그레이션 계획
@@ -192,7 +192,7 @@ npm run typecheck       # 타입 에러 없음
 ### 4.5 Runner 호출 방식
 
 ```bash
-python3 .claude/skills/zero-to-prototype/scripts/run-phases.py v1-prototype
+python3 .claude/skills/zero-to-proto/scripts/run-phases.py v1-prototype
 ```
 
 - 인자는 **사이클 라벨**. runner가 `planning/cycles/v1-prototype/build/index.json`을 읽고 다음 `pending` phase 찾아 실행.

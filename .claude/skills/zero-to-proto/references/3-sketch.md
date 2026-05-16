@@ -59,7 +59,7 @@ intent에서 [타겟 사용자]가 [문제]를 푼다고 했지. 그 사람이 �
 
 ### 2.4 플랫폼별 인터랙션 형태
 
-플랫폼에 따라 가시화 방식이 다르다. `intent.md` frontmatter `platform` 필드를 보고 분기. **`platforms`도 있으면 메인 + 추가 platforms 형태를 모두 그림** (예: `platform: mobile` + `platforms: [web]` → 모바일 와이어프레임 + 웹 와이어프레임 둘 다).
+플랫폼에 따라 가시화 방식이 다르다. Sketch는 platform 미정 OK — Intent **사용 맥락**(시점·환경·빈도) 기반으로 메인 플랫폼 가설을 잡고 그 형태로 그림. **확정·SoT는 PRD에서** (`references/4-prd.md` §2.2). cross-platform 가능성(예: web + mobile 둘 다)이 보이면 메인 + 추가 형태를 모두 그려도 됨 (예: 모바일 + 웹 와이어프레임 둘 다).
 
 - **UI (web/mobile/desktop)**: 핵심 화면 3~7개의 ASCII 와이어프레임(또는 Figma·손그림 링크). 화면당 진입 경로·주요 컴포넌트·다음 화면 전환 트리거. 화면 간 이동 시퀀스. **카피·시각 placeholder는 `brand-guide.md`의 voice·카피 패턴·금지 사항을 input으로 적용**해 처음부터 brand 정합으로 박음. 화면 구성이 정해지면 brand-guide.md §8(차별 시각 시그널)·§9(카피 패턴)을 화면 컨텍스트(Hero·CTA·푸터 등) 기준으로 보강 update.
     - **★ ASCII 와이어프레임은 별도 파일** (`sketch-wireframes.md` 또는 `sketch/wireframes.md`)에 분리. **사람 review 전용** — Claude Design 핸드오프에 미포함. 이유: ASCII가 layout anchor 효과로 Claude Design 창의성·brand 정합 자유도를 제한할 위험. Sketch 본문엔 시나리오·플로우·화면별 진입 경로·주요 컴포넌트·전환만 박고 layout 직관은 wireframes 파일에서 사람이 빠르게 검토.

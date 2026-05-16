@@ -1,6 +1,6 @@
 ---
-name: mvp-to-production
-description: Production 사이클 (PMF MVP → scale·운영, 15단계, PMF 진입·scale 게이트)
+name: proto-to-mvp
+description: MVP 사이클 (prototype → PMF 검증 MVP, 15단계, PSF 진입·PMF retro 게이트)
 disable-model-invocation: true
 ---
 
@@ -8,17 +8,17 @@ disable-model-invocation: true
 
 ## 1. 진입 흐름
 
-### 1.0 사이클 위치 — production 단계
+### 1.0 사이클 위치 — MVP 단계
 
-이 스킬은 **production 단계** 전용. **MVP 사이클 retro의 PMF(Product-Market Fit) ✅ 판정이 진입 전제**. 빈 캔버스 시작 X — 직전 MVP 산출물을 base로 진화. 15단계(13 + Launch + PR/Marketing) → retro에서 **scale·sustainable 평가**로 사이클 종료. ✅ → 다음 production 사이클로 grow 누적 또는 종료. ❌ → MVP 재진입(`proto-to-mvp`)으로 PMF 재검증 (시장 변화·제품 fit 변동 케이스).
+이 스킬은 **MVP 단계** 전용. **prototype 사이클 retro의 PSF(Problem-Solution Fit) ✅ 판정이 진입 전제**. 빈 캔버스 시작 X — 직전 prototype 산출물을 base로 진화. 15단계(13 + Launch + PR/Marketing) → retro에서 **PMF(Product-Market Fit) 판정**으로 사이클 종료. PMF ✅ → `mvp-to-production`로 production 진입. PMF ❌ → MVP 재실행(산출물 추가 진화) 또는 종료.
 
-### 1.1 현재 production 사이클 판별
+### 1.1 현재 MVP 사이클 판별
 
-- **진입 조건 검증** — 직전 MVP 사이클(`v*-mvp` 폴더)의 `retro.md`에 PMF 판정 결과 확인. 미판정·❌면 사용자에게 알리고 `proto-to-mvp`로 회귀 안내 (MVP 재실행 또는 retro 마무리).
-- `v*-prod` 폴더 있으면 그 폴더 사용 (가장 큰 vN).
-- 없으면 → `references/cycle-triggers.md`의 "직전 사이클 산출물 base로 복사" 절차로 새 `v{N+1}-prod/` 폴더 생성. **빈 파일에서 시작 금지** — 직전 MVP 산출물을 모두 복사 후 단계별로 diff 업데이트 (scale·관측·SLA·예산 깊이 추가).
+- **진입 조건 검증** — 직전 prototype 사이클(`v*-prototype` 폴더)의 `retro.md`에 PSF 판정 결과 확인. 미판정·❌면 사용자에게 알리고 `zero-to-proto`로 회귀 안내 (피봇 또는 retro 마무리).
+- `v*-mvp` 폴더 있으면 그 폴더 사용 (가장 큰 vN).
+- 없으면 → `references/cycle-triggers.md`의 "직전 사이클 산출물 base로 복사" 절차로 새 `v{N+1}-mvp/` 폴더 생성. **빈 파일에서 시작 금지** — 직전 prototype 산출물을 모두 복사 후 단계별로 diff 업데이트.
 - 사용자가 특정 단계를 콕 집어 지시하면 그 단계로 점프 (§1.2 게이트는 "사용자 명시 점프" 사유로 통과).
-- `v*-prototype` 또는 `v*-mvp` 폴더는 **이 스킬 영역 X** (`v*-mvp`는 진입 검증용 read만).
+- `v*-prototype` 또는 `v*-prod` 폴더는 **이 스킬 영역 X** (`v*-prototype`은 진입 검증용 read만).
 
 ### 1.2 현재 단계 판별
 
@@ -43,7 +43,7 @@ disable-model-invocation: true
 
 ## 2. 15단계 구성
 
-Production 사이클은 MVP의 15단계 골격을 유지하되 각 단계 *깊이*가 다름 — scale·관측·SLA·예산·다채널 마케팅·운영 procedure.
+MVP 사이클은 prototype의 13단계를 이어받고 **출시·홍보·마케팅을 추가**해 retro 앞에 끼움. retro는 15번으로 밀림.
 
 | # | 단계 | 산출물 (현재 사이클 폴더 기준) | references |
 |---|------|---|---|
@@ -80,12 +80,12 @@ Production 사이클은 MVP의 15단계 골격을 유지하되 각 단계 *깊�
 
 해당 references가 아직 없으면 사용자에게 알리고 작성 후 진행하거나 사용자가 직접 진행하도록 안내.
 
-### 2.2 Retro 게이트 — 사이클 졸업·다음 사이클 진입
+### 2.2 Retro 게이트 — 사이클 졸업·다음 단계 진입
 
-15번 Retro에서 **scale·sustainable 평가**: SLA 달성·수익 모델 작동·운영 안정성·비용 budget·고객 단위 경제성. 판정 결과로 다음 단계 분기:
+15번 Retro에서 **PMF(Product-Market Fit) 판정**: real users(10s~100s) retention·organic 시그널·NPS·사용 빈도 기반. 판정 결과로 다음 단계 분기:
 
-- **✅** → 다음 production 사이클(`v{N+1}-prod`)로 grow 누적 (기능 확장·운영 자동화 deepening) 또는 종료
-- **❌** → MVP 단계 재진입(`proto-to-mvp`)으로 PMF 재검증 (시장 변화·제품 fit 변동 케이스에서 발생)
+- **PMF ✅** → `mvp-to-production` 스킬로 production 사이클 진입 (MVP 산출물을 base로 진화, scale·운영·다채널 마케팅 깊이)
+- **PMF ❌** → MVP 재실행 (산출물 추가 진화, 새 MVP 사이클 `v{N+1}-mvp` 또는 동일 폴더 deepening) 또는 종료
 
 Retro 작성 절차: `references/15-retro.md`.
 
@@ -121,16 +121,19 @@ Retro 작성 절차: `references/15-retro.md`.
 
 ## 4. 단계 게이트와 건너뛰기
 
-각 단계 진입 전 이전 산출물의 **존재**와 **완성도**(해당 references 체크리스트)를 검사. *게이트* = "이전 단계 산출물이 갖춰졌는지 확인하는 잠금장치". 미통과 시 옵션:
+각 단계 진입 전 이전 산출물의 **존재**와 **완성도**(해당 references 체크리스트)를 검사. *게이트* = "이전 단계 산출물이 갖춰졌는지 확인하는 잠금장치". 미통과 시 3 옵션:
 
-- (a) 이전 단계 보완 — **사실상 prod에선 유일 옵션**
-- (b)(c) — prod에선 사용 X (강제 차단)
+- (a) 이전 단계 보완 — 안전한 디폴트
+- (b) 강행 — 빈 placeholder 산출물 자동 생성 후 진행, 회고에서 재점검
+- (c) 산출물 없이 진행 + 회고에서 재점검
 
-### 4.1 Production 사이클 게이트 강도 — **강제 차단**
+선택 사유는 해당 단계 산출물 또는 `retro.md`에 기록.
 
-이 사이클은 *scale·SLA·운영 안정성·시장 노출*. 게이트 미달 시 **다음 단계 진입 불가** — 통과 의무. 산출물·체크리스트가 정량 임계값(성능 budget·보안 룰·SLA 등) 충족하지 못하면 (a) 이전 단계 보완으로만 회복.
+### 4.1 MVP 사이클 게이트 강도 — **경고 + 사용자 선택**
 
-각 단계 references의 정량 체크리스트(비기능 임계값·성능 budget·보안 룰·SLA·예산)는 prod 강도 하위에서 엄격 평가. (다른 사이클 강도: Prototype = 측정·기록만. MVP = 경고 + 사용자 선택. 해당 SKILL.md 참조.)
+이 사이클은 *real users 10s~100s 노출·PMF 검증*. 게이트 미달 시 **사용자에게 확인** — 통과 결정하면 사유를 retro에 기록. (a)(b)(c) 옵션 모두 가능하되, (b)·(c) 선택 시 retro 기록 필수.
+
+각 단계 references의 정량 체크리스트(비기능 임계값·성능 budget·보안 룰)는 mvp 강도 하위에서 평가. (다른 사이클 강도: Prototype = 측정·기록만. Production = 강제 차단. 해당 SKILL.md 참조.)
 
 ## 5. Phase 빌드(9단계) 실행
 
@@ -138,7 +141,7 @@ Retro 작성 절차: `references/15-retro.md`.
 
 1. `build/` 디렉토리 확인 (생성 가이드 = `references/7-build-plan.md`).
 2. 사용자에게 실행 방식(foreground/background) 확인. 복잡도 기반 추천하되 결정은 사용자.
-3. 스크립트 실행: `python3 .claude/skills/mvp-to-production/scripts/run-phases.py <cycle-label>` (예: `v3-prod`).
+3. 스크립트 실행: `python3 .claude/skills/proto-to-mvp/scripts/run-phases.py <cycle-label>` (예: `v2-mvp`).
 4. 종료 후 `build/index.json`의 모든 phase status 검사. **종료 코드만 보고 성공 판단 금지.**
 5. error/blocked/needs_review 발견 시 구체적 액션과 함께 보고. 사용자 자연어 재개 지시 시 status 자동 리셋 후 재실행.
 

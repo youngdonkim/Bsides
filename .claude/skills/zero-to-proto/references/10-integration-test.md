@@ -56,7 +56,7 @@ E2E 시나리오 (Sketch base):
 
 ### 2.3 테스트 도구·실행 — 플랫폼 분기
 
-`intent.md` `platform` + Architecture 스택 기반.
+`prd.md` `platform` + Architecture 스택 기반.
 
 - **web**: E2E = Playwright·Cypress / 성능 = Lighthouse + PageSpeed Insights (CrUX 실 사용자 데이터) / 접근성 = axe·pa11y / 보안 = npm audit, OWASP ZAP 기본 스캔.
   - **Core Web Vitals 측정 표준**: 시크릿 창 + Lighthouse Mobile + Simulated throttling (worst-case) AND DevTools throttling=No throttle (실 환경) 둘 다 측정. 75th percentile 기준 LCP ≤ 2.5s · INP ≤ 200ms · CLS ≤ 0.1 (4-prd.md §2.5 표).

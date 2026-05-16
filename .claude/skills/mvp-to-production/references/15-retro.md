@@ -12,7 +12,7 @@ description: Production 사이클 회고 단계 가이드. launch metric·SLA·�
 - **잘된 점·아쉬운 점**: 결정·기술·워크플로우.
 - **AI 자동화 실패 지점**: 어느 phase에서 needs_review·error·blocked 자주 발생.
 - **다음 사이클 입력**: Intent·PRD·Architecture 업데이트 사항.
-- **워크플로우 개선 제안** (선택): zero-to-prototype 스킬 자체 피드백.
+- **워크플로우 개선 제안** (선택): zero-to-proto 스킬 자체 피드백.
 
 ## 2. 진행 절차
 
@@ -159,7 +159,7 @@ created_at: YYYY-MM-DD
   - v1 디자인 그대로 / 일부 수정 / 전체 재작업
 
 # 워크플로우 개선 제안 (선택)
-{zero-to-prototype 스킬 자체에 대한 피드백 — 어느 단계가 비효율적이었는지, 어떤 가이드가 부족했는지}
+{zero-to-proto 스킬 자체에 대한 피드백 — 어느 단계가 비효율적이었는지, 어떤 가이드가 부족했는지}
 ```
 
 ### 2.5 TBD 채우기 (선택적 인터뷰)
