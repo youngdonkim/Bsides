@@ -39,10 +39,10 @@ Phase 빌드는 7번 Build plan에서 만든 `build/` 안의 phase들을 **`scri
 ### 2.3 스크립트 호출
 
 ```bash
-python3 .claude/skills/zero-to-prototype/scripts/run-phases.py <cycle-label>
+python3 .claude/skills/zero-to-proto/scripts/run-phases.py <cycle-label>
 ```
 
-예: `python3 .claude/skills/zero-to-prototype/scripts/run-phases.py v1-prototype`.
+예: `python3 .claude/skills/zero-to-proto/scripts/run-phases.py v1-prototype`.
 
 - **foreground**: Bash 도구 직접 호출, 출력 stream.
 - **background**: Bash 도구의 `run_in_background: true` 옵션. 완료 시 자동 알림.

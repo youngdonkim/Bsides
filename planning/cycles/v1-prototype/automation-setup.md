@@ -40,4 +40,4 @@ updated_at: 2026-05-12
 
 1. GitHub repo 이름 확정 → `gh repo create youngdonkim/bsides --public --source=. --remote=origin`
 2. 첫 commit (현재 site/·planning/·.claude/·CLAUDE.md·.gitignore 등 모두) + push
-3. 9단계 Phase Build 시작 (`python3 .claude/skills/zero-to-prototype/scripts/run-phases.py v1-prototype`)
+3. 9단계 Phase Build 시작 (`python3 .claude/skills/zero-to-proto/scripts/run-phases.py v1-prototype`)

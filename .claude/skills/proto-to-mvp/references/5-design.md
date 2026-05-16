@@ -33,7 +33,7 @@ Design은 **PRD·Brand Guide·Sketch를 받아 hi-fi 디자인 코드로 옮기�
 
 Claude Design 공식 export 6가지 (공식 docs 기준):
 
-| # | 방식 | zero-to-prototype 사용 |
+| # | 방식 | zero-to-proto 사용 |
 |---|---|---|
 | 1 | Claude Code 핸드오프 (로컬 에이전트 또는 웹) | △ 사용 가능 — 단 핸드오프 결과가 SoT가 안 됨 |
 | 2 | Download ZIP | △ 사용 가능 — 풀어서 보존 |
@@ -62,7 +62,7 @@ zip·핸드오프는 인터랙션 코드·React 컴포넌트가 필요한 큰 �
 | **콘텐츠** (어떤 정보 표시) | `sketch.md` 화면별 컴포넌트 + `prd.md` 기능 명세의 결과·메타 |
 | **대상 사용자** (누가 사용) | `intent.md` 타겟 사용자 + 사용 맥락 |
 
-추가 입력 (공식 docs 패턴 + zero-to-prototype 보강):
+추가 입력 (공식 docs 패턴 + zero-to-proto 보강):
 
 - **★ `brand-guide.md` 전체** — 공식 docs "자동 브랜드 적용"이 작동하려면 brand 정보가 input으로 들어가야 함. essence·voice·시각 무드·컬러·타이포·차별 시각 시그널·카피 패턴·금지 사항 모두 명시 전달.
 - **플랫폼·platforms** (`intent.md` frontmatter) — 반응형 범위·iOS/Android 일관성 결정

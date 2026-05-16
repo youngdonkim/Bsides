@@ -106,7 +106,7 @@ planning/
 └── docs/             ← 사이클 무관 문서(BRAND·MANIFESTO 등) 선택
 ```
 
-`docs/`는 선택. 사이클 무관 영구 문서(브랜드·매니페스토·아키텍처 결정 기록)가 있으면 `planning/docs/` 또는 `planning/adr/`에 둘 수 있다. **이 스킬은 `cycles/` 외 폴더에 손대지 않는다.**
+영구 의사결정(ADR)은 `planning/adr.md` 단일 파일. 사람용 docs는 `docs/`. **이 스킬은 `cycles/` 외 폴더에 손대지 않는다.**
 
 ## 7. 엣지 케이스
 

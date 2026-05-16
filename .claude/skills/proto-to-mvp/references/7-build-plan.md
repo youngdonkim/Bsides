@@ -192,7 +192,7 @@ npm run typecheck       # 타입 에러 없음
 ### 4.5 Runner 호출 방식
 
 ```bash
-python3 .claude/skills/zero-to-prototype/scripts/run-phases.py v1-prototype
+python3 .claude/skills/zero-to-proto/scripts/run-phases.py v1-prototype
 ```
 
 - 인자는 **사이클 라벨**. runner가 `planning/cycles/v1-prototype/build/index.json`을 읽고 다음 `pending` phase 찾아 실행.

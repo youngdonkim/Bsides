@@ -23,7 +23,7 @@ description: 배포 단계 가이드. 호스팅 결정·시크릿·도메인·�
 
 ### 2.2 호스팅 결정 — 플랫폼 분기
 
-`intent.md` `platform` + `platforms` + Architecture 외부 의존성 base. AI가 후보 제시:
+`prd.md` `platform` + `platforms` + Architecture 외부 의존성 base. AI가 후보 제시:
 
 #### web (정적 또는 SSR)
 - **Vercel** — Next.js·React·Vue 권장. CI 통합 좋음. 빠른 prototype에 디폴트.

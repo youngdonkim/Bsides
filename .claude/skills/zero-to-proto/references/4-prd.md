@@ -23,7 +23,30 @@ PRD는 Intent("무엇·왜·누구")·Brand Guide("어떤 톤·시각으로")·S
 - 첫 사이클인데 이미 있음: 내용 읽고 §3 체크리스트 검증, 부족분만 보완.
 - 두 번째 이상 사이클: 직전 PRD + retro 기반 업데이트. **§5 사이클 업데이트 모드**.
 
-### 2.2 기능 도출 인터뷰
+### 2.2 플랫폼 결정
+
+PRD가 platform 결정·SoT의 단계. Intent의 **사용 맥락**(시점·환경·빈도)과 Sketch의 화면 흐름·인터랙션을 입력으로 명시 결정. 솔루션을 미리 박지 말고 사용 맥락에서 자연스럽게 좁힘.
+
+**입력에서 제외**: `sketch-wireframes.md`(있으면) — 사람 review용 ASCII 시각 데모. 기술 스택·platform과 무관.
+
+```
+[intent.md 사용 맥락·Sketch 시나리오 인용해서 보여주기]
+
+이 입력 보면 platform은 어디가 가장 자연스러울까? — `web`, `mobile`, `cli`, `library`, `desktop`, `api-server`, `other` 중 하나(메인 플랫폼).
+```
+
+후보 제시 가이드 (사용자가 "잘 모르겠어" 답할 때):
+
+- 본업 외 시간·반응형 필요·연결 안정 → **web**
+- 모바일 빈번·오프라인·푸시 → **mobile**
+- 개발자 도구·터미널 사용 → **cli**
+- 다른 앱이 import → **library**
+- 실시간 요청 처리·서버 → **api-server**
+- OS 통합·local 파일 → **desktop**
+
+결정 후 `prd.md` frontmatter에 기록 (메인 플랫폼 하나). **Cross-platform 케이스**(Flutter·RN·Tauri·Electron 등): 메인 + `platforms` + `cross_platform_framework` 추가. 트레이드오프(코드 공유율 vs 플랫폼별 native 느낌 vs 개발 속도)는 Architecture 단계에서 세부 결정.
+
+### 2.3 기능 도출 인터뷰
 
 `intent.md`의 **핵심 가설**과 `sketch.md`의 **핵심 시나리오 3~5개**를 다시 사용자에게 보여주고:
 
@@ -38,7 +61,7 @@ PRD는 Intent("무엇·왜·누구")·Brand Guide("어떤 톤·시각으로")·S
 
 발견된 누락은 사용자에게 한 번에 모아서 "이것들도 필요하지 않을까? 필요/불필요로 답해줘" 묻는다.
 
-### 2.3 MoSCoW 분류
+### 2.4 MoSCoW 분류
 
 도출된 기능 목록을 4분류로:
 
@@ -55,7 +78,7 @@ PRD는 Intent("무엇·왜·누구")·Brand Guide("어떤 톤·시각으로")·S
 
 사이클 라벨과 자연 매핑: `v1-prototype`은 가설 검증이 목적이라 Must이 적음(보통 3~7개), `v2-mvp`는 Must이 늘고 Won't이 줄어드는 식. **Must이 너무 많으면 한 번 더 가지치기 권유**.
 
-### 2.4 Must 기능별 명세 인터뷰
+### 2.5 Must 기능별 명세 인터뷰
 
 각 Must 기능에 대해 4개 항목. **4항목 영역 분리 — SoT 매트릭스 따름**:
 
@@ -77,9 +100,9 @@ PRD는 Intent("무엇·왜·누구")·Brand Guide("어떤 톤·시각으로")·S
 
 답이 모호하면 한 번 더 구체화. 시각·layout 정보가 답에 섞이면 "그건 sketch에서 다룰 거야 — 여기선 동작/데이터 중심으로"로 redirect.
 
-### 2.5 비기능 요구사항 — 플랫폼 분기
+### 2.6 비기능 요구사항 — 플랫폼 분기
 
-`intent.md` `platform` 필드 보고 분기. **`platforms`도 있으면 메인 플랫폼 + 추가 platforms의 분기 질문 셋을 모두 적용** (예: `platform: mobile` + `platforms: [web]` → mobile 항목 + web 항목 둘 다 점검). 한 코드베이스라도 각 플랫폼 UX는 native하게 검토. 플랫폼별 기본 항목:
+§2.2에서 결정한 `prd.md` frontmatter `platform` 필드 보고 분기. **`platforms`도 있으면 메인 플랫폼 + 추가 platforms의 분기 질문 셋을 모두 적용** (예: `platform: mobile` + `platforms: [web]` → mobile 항목 + web 항목 둘 다 점검). 한 코드베이스라도 각 플랫폼 UX는 native하게 검토. 플랫폼별 기본 항목:
 
 - **web**: 
   - **Core Web Vitals (75th percentile)** — Google 공식 기준: LCP ≤ 2.5s · INP ≤ 200ms · CLS ≤ 0.1
@@ -96,7 +119,7 @@ PRD는 Intent("무엇·왜·누구")·Brand Guide("어떤 톤·시각으로")·S
 
 각 항목에 **구체값(숫자)** 받기. "빠르게" 같은 추상 답은 한 번 더 ("P95 5초? 1초? 200ms?"). 산업 표준 임계값(Core Web Vitals 등)은 그대로 사용 가능. 게이트 강도는 SKILL.md §5.1 stage별 매트릭스 적용.
 
-### 2.6 외부 의존성 인터뷰
+### 2.7 외부 의존성 인터뷰
 
 ```
 - 외부 API·서비스: 어떤 거? (예: Stripe·OpenAI·Firebase·Sentry)
@@ -107,7 +130,7 @@ PRD는 Intent("무엇·왜·누구")·Brand Guide("어떤 톤·시각으로")·S
 
 대안 검토 안 했으면 강제 안 함 — Architecture 단계에서 다시 점검.
 
-### 2.7 제약조건 인터뷰
+### 2.8 제약조건 인터뷰
 
 ```
 - 시간: 이 사이클 deadline?

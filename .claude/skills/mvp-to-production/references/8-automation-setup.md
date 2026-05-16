@@ -3,7 +3,7 @@ name: 8-automation-setup
 description: Automation Setup 단계 가이드. 빌드 시작 전 프로젝트 환경(빌드 도구·CLAUDE.md·시크릿·테스트 인프라·CI/CD)을 자동 점검하고 셋업. CI/CD는 GitHub Actions 디폴트. SKILL.md §3의 8번 단계.
 ---
 
-Automation Setup은 9번 Phase 빌드 시작 전 **프로젝트 자체의 작업 환경을 갖추는 단계**다. zero-to-prototype 스킬과는 별개로, 이 프로젝트가 빌드되려면 필요한 도구·설정·CI를 점검·셋업한다.
+Automation Setup은 9번 Phase 빌드 시작 전 **프로젝트 자체의 작업 환경을 갖추는 단계**다. zero-to-proto 스킬과는 별개로, 이 프로젝트가 빌드되려면 필요한 도구·설정·CI를 점검·셋업한다.
 
 **핵심 진행 방식**: AI가 단독으로 자동 점검 → 결과 보고 + 사용자 결정 항목 한 번에 제시 → AI가 셋업 실행. 사용자는 결정만.
 
