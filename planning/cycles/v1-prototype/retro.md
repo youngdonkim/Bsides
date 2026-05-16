@@ -31,7 +31,7 @@ prototype 재정의 (출시까지) 기준으로 평가. operational 메트릭은
 | **사이트 빌드·deploy 완료** (prototype 핵심 산출물) | ✅ 완료 | bsides-one.vercel.app 운영 중 |
 | **첫 prototype 사이클 실행** (메타) | ✅ 진행 중 | 도토리룸 + Bsides 자체 메타-prototype |
 | **객원·정식 멤버 협업 모델 작동 검증** | ✅ 작동 중 | 운영자·디자이너 객원 1명 협업 진행 중 |
-| **method (zero-to-prototype skill) 자기 적용** | ✅ 적용·정교화 중 | 도토리룸 진행하며 스킬 개선 누적 |
+| **method (zero-to-proto skill) 자기 적용** | ✅ 적용·정교화 중 | 도토리룸 진행하며 스킬 개선 누적 |
 | 워크샵 6회 진행 / 멤버쉽 2명 확보 / 강의 콘텐츠 누적 | v2-mvp 영역 (이관) | operational 메트릭, prototype scope 외 |
 
 → **목표 이상 달성**. 4가지 prototype-scope 기준 모두 ✅. operational 메트릭은 정의 재조정으로 v2 이관.
@@ -45,7 +45,7 @@ prototype 재정의 (출시까지) 기준으로 평가. operational 메트릭은
 
 # 아쉬운 점
 
-1. **prototype·MVP·production 경계 모호** — 13단계 노트에 출시·홍보를 끼우려다 "이건 MVP 영역" 발견. 처음부터 zero-to-prototype 스킬 범위가 prototype 한정임을 명시했어야. (이 발견은 v2 진입의 자연 트리거가 됨)
+1. **prototype·MVP·production 경계 모호** — 13단계 노트에 출시·홍보를 끼우려다 "이건 MVP 영역" 발견. 처음부터 zero-to-proto 스킬 범위가 prototype 한정임을 명시했어야. (이 발견은 v2 진입의 자연 트리거가 됨)
 2. **needs_review 게이트 항목 중 "배포"가 훅 enforcement와 중복 — 한참 지나서 발견·제거.** CLAUDE.md slim 원칙을 룰 자체에 더 일찍 적용했어야.
 3. **squash merge policy vs 스킬 detection 불일치** — `git branch --merged`가 squash 못 잡는 gap을 first invoke 시점에야 발견. 스킬 설계 시 GitHub merge style 가정 명시했어야.
 4. **auto-wip-commit 메시지 multi-byte 컷 이슈** — `cut -c1-60`이 UTF-8 경계에서 글자 깨짐. 기능 자체엔 무영향이나 가독성 ↓.
@@ -147,14 +147,14 @@ prototype 재정의 (출시까지) 기준으로 평가. operational 메트릭은
 
 ## Skill 분리
 
-- `zero-to-prototype` 기존 — 13단계 prototype 한정으로 재정의 (출시·홍보 단계 제거 확정)
-- `prototype-to-mvp` **신규** — MVP 단계 (RBAC·인증·실 사용자 onboarding 등 포함)
+- `zero-to-proto` 기존 — 13단계 prototype 한정으로 재정의 (출시·홍보 단계 제거 확정)
+- `proto-to-mvp` **신규** — MVP 단계 (RBAC·인증·실 사용자 onboarding 등 포함)
 - `mvp-to-production` **신규** — production 단계 (scale·SLA·인시던트 등)
 - 공통 패턴은 shared references 또는 `claude-config-authoring.md` cross-cutting rule
 
 ## 작업 우선순위 (v2-mvp 사이클 진입 시)
 
-1. 스킬 분리 (zero-to-prototype 재정의 + prototype-to-mvp 신규)
+1. 스킬 분리 (zero-to-proto 재정의 + proto-to-mvp 신규)
 2. v2-mvp intent.md (이 retro의 "다음 사이클 입력" base)
 3. v2-mvp prd.md (RBAC·인증·멤버 시스템 결정)
 4. v2-mvp architecture.md (스택 변경·DB·인증 결정)
@@ -163,11 +163,11 @@ prototype 재정의 (출시까지) 기준으로 평가. operational 메트릭은
 
 # 워크플로우 개선 제안 — 적용 상태
 
-zero-to-prototype 스킬 자체 피드백 및 현재 적용 상태:
+zero-to-proto 스킬 자체 피드백 및 현재 적용 상태:
 
 | # | 제안 | 적용 상태 | 처리 |
 |---|---|---|---|
-| 1 | 사이클 라벨에 prototype/MVP/production 명시화 | **v2-mvp 작업으로 흡수** | 스킬 자체를 3개로 분리 (zero-to-prototype + prototype-to-mvp + mvp-to-production). 분리 자체가 #1의 implement. |
+| 1 | 사이클 라벨에 prototype/MVP/production 명시화 | **v2-mvp 작업으로 흡수** | 스킬 자체를 3개로 분리 (zero-to-proto + proto-to-mvp + mvp-to-production). 분리 자체가 #1의 implement. |
 | 2 | needs_review 게이트 항목 중 hook enforcement 중복 점검 | **일회성 정리 완료, 자동 mechanism 미구현** | "배포" 항목 CLAUDE.md에서 제거 (PR #4). 자동 감지 로직은 v2 검토. 현재는 사용자 인지 의존. |
 | 3 | squash merge 가정 명시 | ✅ **적용 완료** | `.claude/rules/deploy.md` "Squash and merge" 정책 + 이유·트레이드오프·삭제 force 필요까지 명시. next-task 스킬도 PR status 기반 detection로 정합. |
 | 4 | 메타 회고 시점 자동 트리거 | **v2 검토 (보류)** | "scope 외 작업 누적 → 스킬 분리·전환 알림" 자동화 가치 있음. 구현 비용 미평가. v2-mvp Architecture·Automation Setup 단계에서 결정. |

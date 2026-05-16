@@ -1,7 +1,22 @@
 # Bsides
 
-> 혼자가 가능해진 시대, 출시까지 같이 가는 작은 메이커 동아리.
-> 운영 · 현지 / hi@bsides.kr / [카톡 @bsides](https://open.kakao.com/o/bsides) / [bsides.kr](https://bsides.kr)
+> AI가 만든 그럴듯한 초고 위에, 감성 한 스푼.
+
+혼자가 가능해진 시대지만, 출시까지 같이 가는 **프로젝트 팀 빌딩·재능 품앗이 서비스**.
+사이드 프로젝트 출시 의지 있는 직장인·디자이너·개발자·마케터·기획자가 대상. 한 사이클·한 멤버 1명 출시 + 객원 멤버 릴레이로 운영 (객원 참여 → 심사 → 약관 → 정식 멤버 4단계 전환).
+
+## 프로젝트 모델 — 3 사이클
+
+Bsides는 **prototype → MVP → production** 3 사이클로 서비스를 키운다. 각 사이클 = 13~15단계 워크플로우 1 loop (Intent · Brand · Sketch · PRD · Design · Architecture · Build · Test · Doc · Deploy · [Launch · PR/Marketing ·] Retro). 사이클 retro에서 게이트 판정으로 다음 사이클 진입 또는 피봇.
+
+## Commands
+
+```bash
+npm run dev        # astro dev — 로컬 개발 서버
+npm run build      # astro build — dist/ 정적 출력
+npm run preview    # 빌드 결과 로컬 확인
+npm run typecheck  # astro check — TS + content schema 검증
+```
 
 ## AI Coding Discipline
 
@@ -75,10 +90,13 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - **반말**, 친구처럼 (공통).
 
 ### 단순 명령·확인일 때 (예: "ㄱㄱ", "ㅇㅋ", "다음 가자", "수정해줘")
+
 - 결론 먼저, 짧게. 작업 후 한두 줄 보고로 끝. 표·비유 불필요.
 
 ### 설명·결정·이해 요청일 때 (예: "왜?", "이게 뭐야?", "이해 안 가", "검토해줘", 새 개념 도입)
+
 **중학생 모드 + 비전공자 친화 — 다음 패턴 모두 적용**:
+
 1. **한 줄 요약**으로 시작.
 2. **비유 1~2개** — 일상 사례에 빗대 (검문소·옷가게·회원제 등).
 3. **실제 시나리오** — 공격 사례·코드 흐름·실제 출력 등 구체 예시.
@@ -96,20 +114,24 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - @planning/cycles/v1-prototype/brand-guide.md — 컬러·voice·금지
 
 토픽별 path-scoped 룰은 `.claude/rules/` 에 분리되어 있어 (해당 파일 작업 시 자동 로드):
+
 - `design-system.md` — CSS 토큰, 클래스 추출, 인라인 정책, Astro Font 매칭
 - `content-collections.md` — Markdown collections, Zod schema, frontmatter
 - `deploy.md` — Vercel·GitHub·PR 머지·CI 워크플로 + Claude Code 훅 2종(no-auto-deploy·auto-wip-commit)
-- `perf-astro.md` — Astro 5 perf baseline (Image·Font·Critical CSS)
-- `claude-config-authoring.md` — CLAUDE.md·rules·skills 작성 표준 (Anthropic context engineering 흡수)
+- `perf-astro.md` — Astro 6 perf baseline (Image·Font·Critical CSS)
+- `claude-harness-tuning.md` — CLAUDE.md·rules·skills·agents 하네스 튜닝 표준 (Anthropic context engineering 흡수)
+- `llm-limits.md` — LLM이 못 보는 영역(시각·UX·실사용 부수효과). 컴포넌트·페이지·디자인 작업 시 로드
+- `threat-model.md` — 외부 도달 위협 모델(preview URL·공유 링크·봇). 인증·민감정보·업로드·API 영역 작업 시 로드
 
 사이클 단계별 스킬 (`.claude/skills/` — invoke 시 lazy load):
-- `zero-to-prototype` — prototype 단계 (13단계, 아이디어 → 배포된 prototype). 첫 사이클 또는 신규 prototype-phase 사이클.
-- `prototype-to-mvp` — MVP 단계 (15단계 = 13 + Launch + PR/Marketing + Retro 위치 변경). prototype retro 이후 PMF 검증 단계.
+
+- `zero-to-proto` — prototype 단계 (13단계, 아이디어 → 배포된 prototype). 첫 사이클 또는 신규 prototype-phase 사이클.
+- `proto-to-mvp` — MVP 단계 (15단계 = 13 + Launch + PR/Marketing + Retro 위치 변경). prototype retro 이후 PMF 검증 단계.
 - `mvp-to-production` — production 단계 (15단계, MVP와 같은 구조지만 scope가 scale·ops·multi-channel). MVP PMF 통과 후.
 
 ## 코딩 컨벤션
 
-- **TypeScript strict**. Node 22+ (Astro 5 engine).
+- **TypeScript strict**. Node 24, Astro 6.x.
 - **컴포넌트**: 한 화면 = 한 `.astro` 페이지 (`src/pages/`) + 작은 컴포넌트 (`src/components/`).
 - **콘텐츠 = Markdown collection** + Zod schema 검증 (`src/content.config.ts`).
 - **API 엔드포인트 0개. 사용자 데이터 수집 0** — 카톡 외부 link만. localStorage(Notes 진도) 외 server-side 데이터 없음.
